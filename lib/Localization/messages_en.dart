@@ -135,6 +135,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "Recharge_balance":MessageLookupByLibrary.simpleMessage("Recharge balance"),
     "balance":MessageLookupByLibrary.simpleMessage("balance"),
     "Recharge_wallet":MessageLookupByLibrary.simpleMessage("Recharge wallet"),
-
+    "Service_Evaluation":MessageLookupByLibrary.simpleMessage("Service Evaluation"),
+    "Loyalty_System":MessageLookupByLibrary.simpleMessage("Loyalty System"),
+    "Electronic_Wallet":MessageLookupByLibrary.simpleMessage("Electronic Wallet"),
+    "our_slogan":MessageLookupByLibrary.simpleMessage("Our Slogan"),
+    "our_mission":MessageLookupByLibrary.simpleMessage("Our Mission"),
+    "our_vision":MessageLookupByLibrary.simpleMessage("Our Vision"),
+    "our_values":MessageLookupByLibrary.simpleMessage("Our Values"),
+    "Points_balance":MessageLookupByLibrary.simpleMessage("Points Balance"),
+    "Wallet_balance":MessageLookupByLibrary.simpleMessage("Wallet Balance"),
+    "Offers_discounts":MessageLookupByLibrary.simpleMessage("Offers & Discounts"),
+    "get_Offer":MessageLookupByLibrary.simpleMessage("Get Offer"),
+    "Point":MessageLookupByLibrary.simpleMessage("نقطة"),
+    "get_Point":MessageLookupByLibrary.simpleMessage("اكسب نقاط"),
   };
 }

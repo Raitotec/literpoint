@@ -3,6 +3,7 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:gas_services_new/Views/RequestsPage.dart';
 import 'package:gas_services_new/Views/about_us_page.dart';
+import 'package:gas_services_new/Views/main_page.dart';
 import 'package:gas_services_new/Views/services_page.dart';
 import 'package:sizer/sizer.dart';
 import '../Constans/Style.dart';
@@ -96,7 +97,7 @@ class _HomePageState extends State<HomePage> {
       case 1:
         return MapLocationStationScreen();
       case 0:
-        return MapScreen();
+        return MainScreen();
       case 2:
         return ServicesPage(id: "");
      // case 3:

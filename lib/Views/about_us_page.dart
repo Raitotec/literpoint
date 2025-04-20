@@ -59,15 +59,28 @@ class _AboutUsPageState extends State<AboutUsPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(height: 8.0.h,),
-          Image(image: AssetImage('lib/assets/logo.png'), width: 60.0.w, height: 12.0.h,),
+          SizedBox(height: 3.0.h,),
+          Image(image: AssetImage('lib/assets/logo.png'), width: 60.0.w, height: 17.0.h,),
          // Text(Translations.of(context)!.New_user,style: Style.Secondry16Bold,),
          Container(
-            margin: EdgeInsets.symmetric(horizontal: 10.0.w, vertical: 5.0.h),
+            margin: EdgeInsets.symmetric(horizontal: 4.0.w, vertical: 3.0.h),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  title(Translations.of(context)!.our_slogan),
+                  des(Translations.of(context)!.our_slogan),
+                  SizedBox(height: 2.0.h,),
+                  title(Translations.of(context)!.our_mission),
+                  des(Translations.of(context)!.our_mission),
+                  SizedBox(height: 2.0.h,),
+                  title(Translations.of(context)!.our_vision),
+                  des(Translations.of(context)!.our_vision),
+                  SizedBox(height: 2.0.h,),
+                  title(Translations.of(context)!.our_values),
+                  des(Translations.of(context)!.our_values),
+                  SizedBox(height: 2.0.h,),
+                  /*
                   Row(children: [
                   Expanded(child: Text(data.description!, style: Style.MainText14,
                   )),
@@ -108,7 +121,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                         ],)),
                     itemCount: branches.length,
                   ),
-
+*/
           ]))
 
 
@@ -116,6 +129,31 @@ class _AboutUsPageState extends State<AboutUsPage> {
     );
   }
 
+  title(String t) {
+    return Row(
+      children: [
+        Container(decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Style.SecondryColor
+        ),
+          height: 3.0.h,
+          width: 2.8.w,
+        ),
+        SizedBox(width: 2.0.w,),
+        Expanded(child: Text(t, style: Style.MainText16Bold,))
+      ],
+    );
+  }
+
+  des(String d)
+  {
+    return  Container(
+        margin: EdgeInsets.symmetric(vertical: 0.5.h,horizontal: 1.0.w),
+        child:  Row(children: [
+          Expanded(child: Text(d, style: Style.MainText14,
+          )),
+        ],));
+  }
   Future<void> GetData()
   async {
     showLoading();

@@ -61,6 +61,7 @@ dependencies:
   webview_flutter: ^4.10.0
  # qr_code_scanner: ^1.0.1
   map_location_picker: ^1.2.6
+  banner_image: ^1.0.9
   #google_maps_place_picker_mb: ^3.1.2
 
 

@@ -1,0 +1,305 @@
+import 'package:banner_image/banner_image.dart';
+import 'package:flutter/material.dart';
+import 'package:gas_services_new/Models/DataModel.dart';
+import 'package:gas_services_new/Views/new_offer_page.dart';
+import 'package:loading_overlay/loading_overlay.dart';
+import 'package:sizer/sizer.dart';
+
+import '../Api/DataApi.dart';
+import '../Constans/Style.dart';
+import '../Localization/Translations.dart';
+import '../Routes/route_constants.dart';
+import '../Shared_Data/ServicesData.dart';
+import '../Shared_View/AppBarView.dart';
+import '../Shared_View/DrawerView.dart';
+
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  bool _isLoading = false;
+
+  final list = [
+    'https://picsum.photos/600/207',
+    'https://picsum.photos/600/205',
+    'https://picsum.photos/600/206',
+  ];
+  List<DataModel> offers=<DataModel>[];
+
+
+  @override
+  void initState() {
+    super.initState();
+    GetData();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(child: Scaffold(
+        appBar: AppBarWithlanguage(
+            context, Translations.of(context)!.Home_page),
+        drawer: DrawerList(context),
+        body: LoadingOverlay(
+            isLoading: _isLoading,
+            opacity: 0.2,
+            color: Style.MainColor,
+            progressIndicator: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                  Style.MainColor),),
+            child:BodyUI())));
+  }
+
+  BodyUI() {
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+         BannerImage(
+            itemLength: list.length,
+            imageUrlList: list,
+            selectedIndicatorColor: Style.MainColor,
+            indicatorColor: Colors.black26,
+            indicatorPosition: IndicatorPosition.under,
+            autoPlay: true,
+           aspectRatio: 3,
+          ),
+          Row(
+            children: [
+              PointView("main1",Translations.of(context)!.Points_balance,"1231"),
+              PointView("main2",Translations.of(context)!.Wallet_balance,"1231"),
+            ],
+          ),
+
+          title(Translations.of(context)!.Service_Evaluation),
+          SizedBox(height: 0.5.h,),
+          ServicesRate(),
+          SizedBox(height: 1.5.h,),
+          title(Translations.of(context)!.Offers_discounts),
+          SizedBox(height: 0.5.h,),
+          Offer(),
+          SizedBox(height: 4.0.h,),
+        ],
+      ),
+    );
+  }
+
+  PointView(String img, String title, String value) {
+   return Expanded(child: Container(
+     margin: EdgeInsets.symmetric(horizontal: 2.0.w,vertical: 2.0.h),
+     padding: EdgeInsets.symmetric(horizontal: 1.0.w,vertical: 1.0.h),
+     decoration: BoxDecoration(
+       color: Colors.grey.withOpacity(0.2),
+       borderRadius: BorderRadius.all(Radius.circular(10)),
+
+     ),
+     child:Row(
+       children: [
+         Expanded(child: Column(
+           children: [
+             Text(title,style: Style.MainText12,),
+             SizedBox(height: 1.0.h,),
+             Text(value,style: Style.MainText12.copyWith(fontWeight: FontWeight.bold),)
+           ],
+         )),
+         Expanded(child: Image.asset("lib/assets/"+img+".png", height: 6.0.h,),)
+       ],
+     ),
+   ));
+  }
+
+  title(String t) {
+    return Row(
+      children: [
+        SizedBox(width: 2.0.w,),
+        Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Style.SecondryColor
+        ),
+          height: 3.0.h,
+          width: 2.8.w,
+        ),
+        SizedBox(width: 2.0.w,),
+        Expanded(child: Text(t, style: Style.MainText14Bold,))
+      ],
+    );
+  }
+
+  ServicesRate() {
+    if (NewServicesData.serviceData != null && NewServicesData.serviceData!.length > 0) {
+      return Container(
+          padding: EdgeInsets.symmetric(horizontal: 2.0.w),
+          child: GridView.builder(
+              shrinkWrap: true, // Add this to prevent scrolling issues
+              physics: NeverScrollableScrollPhysics(), // Add this since we're inside SingleChildScrollView
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 2,
+                  crossAxisSpacing: 2.0.w,
+                  mainAxisSpacing: 1.0.h),
+              itemCount: NewServicesData.serviceData!.length,
+              itemBuilder: (BuildContext ctx, index) {
+                return InkWell(
+                    onTap: (){
+                      setState(() {
+                        NewServicesData.serviceData!.forEach((element) => element.selected = false);
+                        NewServicesData.serviceData![index].selected = true;
+                      });
+                      Navigator.pushNamed(context, NewServiceRoute, arguments: NewServicesData.serviceData![index]);
+                    },
+                    child: Container(
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: Style.WhiteColor,
+                            borderRadius: BorderRadius.circular(15.0),
+                            border: NewServicesData.serviceData![index].selected!
+                                ? Border.all(color: Style.MainColor)
+                                : Border.all(color: Style.LightGreyColor),
+                            boxShadow: [BoxShadow(
+                                color: Style.LightGreyColor.withOpacity(0.1),
+                                spreadRadius: 1,
+                                blurRadius: 5,
+                                offset: Offset(7, 7))]
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              NewServicesData.serviceData![index].name!,
+                              style: TextStyle(
+                                  color: Style.MainTextColor,
+                                  fontSize: 14.0.sp,
+                                  fontWeight: FontWeight.bold
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.all(2.0.w),
+                                child: Image.network(
+                                  NewServicesData.serviceData![index].img!,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            )
+                          ],)
+                    ));
+              }));
+    } else {
+      return Center(
+        child: Text(
+          Translations.of(context)!.NoData,
+          style: TextStyle(
+              color: Colors.red,
+              fontSize: 14.0.sp,
+              fontWeight: FontWeight.bold
+          ),
+        ),
+      );
+    }
+  }
+
+  Offer()
+  {
+    if (offers != null && offers!.length > 0) {
+      return SizedBox(  // Wrap with SizedBox to provide fixed height
+          height: 10.0.h,    // Adjust this value based on your needs
+          child:  ListView.builder(
+              scrollDirection: Axis.horizontal,
+             // shrinkWrap: true, // Add this to prevent scrolling issues
+             // physics: NeverScrollableScrollPhysics(), // Add this since we're inside SingleChildScrollView
+              itemCount: offers.length,
+              itemBuilder: (BuildContext ctx, index) {
+                return InkWell(
+                    onTap: (){
+                      setState(() {
+                        offers.forEach((element) => element.selected = false);
+                        offers[index].selected = true;
+                      });
+                      Navigator.pushNamed(context, NewOfferRoute, arguments: offers[index]);
+                    },
+                    child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 2.0.w,vertical: 1.0.h),
+                        margin: EdgeInsets.symmetric(horizontal: 2.0.w),
+                        decoration: BoxDecoration(
+                            color: Style.WhiteColor,
+                            borderRadius: BorderRadius.circular(15.0),
+                            border: NewServicesData.serviceData![index].selected!
+                                ? Border.all(color: Style.MainColor)
+                                : Border.all(color: Style.LightGreyColor),
+                            boxShadow: [BoxShadow(
+                                color: Style.LightGreyColor.withOpacity(0.1),
+                                spreadRadius: 1,
+                                blurRadius: 5,
+                                offset: Offset(7, 7))]
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                             Column(
+                               mainAxisAlignment: MainAxisAlignment.center,
+                               crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(Translations.of(context)!.Offers_discounts,style: Style.MainText12,),
+                                SizedBox(height: 1.0.h,),
+                                Text("10 %",style: Style.MainText12.copyWith(fontWeight: FontWeight.bold),)
+                              ],
+                            ),
+                            SizedBox(width: 2.0.w,),
+                           Image.network(offers[index].img!, height: 6.0.h,)
+                          ],
+                        ),
+                    ));
+              }));
+    }
+    else {
+      return Center(
+        child: Text(
+          Translations.of(context)!.NoData,
+          style: TextStyle(
+              color: Colors.red,
+              fontSize: 14.0.sp,
+              fontWeight: FontWeight.bold
+          ),
+        ),
+      );
+    }
+  }
+
+
+  Future<void> GetData() async {
+    showLoading();
+    try {
+        var x= await GetServices(context);
+        if(x != null && x.length>0) {
+          setState(() {
+            NewServicesData.serviceData = x;
+            offers=x;
+          });
+        }
+      }
+      catch(e){}
+    hideLoading();
+  }
+
+  void showLoading() {
+    setState(() {
+      _isLoading = true;
+    });
+  }
+  void hideLoading() {
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+
+
+
+}

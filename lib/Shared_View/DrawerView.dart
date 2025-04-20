@@ -146,15 +146,17 @@ DrawerList(BuildContext context,{int id=0})
 
                    Navigator.pushNamed(context, NewServiceRoute,arguments: value);
                  },),
-          //   Drawer_Items("icon9", Translations.of(context)!.Requests, context, "RequestsRoute"),
-             Drawer_Items("icon4", Translations.of(context)!.Info, context, "PersonInformationRoute"),
-           //  Drawer_Items("wallet", Translations.of(context)!.Recharge_balance, context, BalanceRoute),
-             Drawer_Items(
-                 "icon8", Translations.of(context)!.Connect_us,
-                 context, "Connect_usRoute"),
+             Drawer_Items("icon14", Translations.of(context)!.Service_Evaluation, context, BalanceRoute),
+             Drawer_Items("icon15", Translations.of(context)!.Loyalty_System, context, LoyaltySystemRoute),
+             Drawer_Items("icon16", Translations.of(context)!.Electronic_Wallet, context, BalanceRoute),
+
              Drawer_Items(
                  "icon13", Translations.of(context)!.About_us,
                  context, "AboutUsRoute"),
+             Drawer_Items("icon4", Translations.of(context)!.Info, context, "PersonInformationRoute"),
+             Drawer_Items(
+                 "icon8", Translations.of(context)!.Connect_us,
+                 context, "Connect_usRoute"),
             /* Drawer_Items(
                  "icon11", Translations.of(context)!.Language,
                  context, "LanguageRoute"),*/
@@ -174,7 +176,7 @@ DrawerList(BuildContext context,{int id=0})
                      Navigator.pop(context);
                     await Future.delayed(Duration(milliseconds: 300));
                      model.changeDirection();
-                      Navigator.pushNamed(context, startRoute);
+                      Navigator.  pushNamed(context, startRoute);
                    }
 
                ),

@@ -18,8 +18,10 @@ import '../Views/StationTransportationPage.dart';
 import '../Views/about_us_page.dart';
 import '../Views/contact_us_page.dart';
 import '../Views/location_station.dart';
+import '../Views/loyalty_page.dart';
 import '../Views/map_location_page.dart';
 import '../Views/map_page.dart';
+import '../Views/new_offer_page.dart';
 import '../Views/new_user_page.dart';
 import '../Shared_Data/CompanyData.dart';
 import '../Shared_Data/DelegateData.dart';
@@ -137,6 +139,15 @@ class CustomRouter {
       case MapLocationRoute:
         {
           return MaterialPageRoute(builder: (_) => MapLocationScreen());
+        }
+        case LoyaltySystemRoute:
+        {
+          return MaterialPageRoute(builder: (_) => LoyaltySystemPage());
+        }
+        case NewOfferRoute:
+        {
+          final args= settings.arguments as DataModel;
+          return MaterialPageRoute(builder: (_) => NewOfferPage(data: args,));
         }
       default:
         return MaterialPageRoute(builder: (_) => NotFoundPage());

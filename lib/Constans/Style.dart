@@ -22,7 +22,8 @@ class Style {
   static Color BlueColor1 = Color(0xffdff1f9);
   static Color BlueColor = Color(0xffd5e5ec);
   static Color GreyColor1 = Color(0xffd8d3d3);
-
+  static Color BorderTextFieldColor = Color(0xffd8d3d3);
+  static Color BorderTextFieldFocusedColor = Color(0xff036D80);
   //fontsize
   static double FontSize25 = 25.0.sp;
   static double FontSize20 = 20.0.sp;

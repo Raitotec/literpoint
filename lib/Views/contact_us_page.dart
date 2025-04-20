@@ -67,6 +67,7 @@ class _Connect_usPageState extends State<Connect_usPage> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(height: 4.0.h,),
+      /*
       Container(
         decoration: Style.BoxDecorationBoxShadowGreyColor,
         padding: EdgeInsets.symmetric(
@@ -108,14 +109,14 @@ class _Connect_usPageState extends State<Connect_usPage> {
               });
             },
           )),
-          Container(
+        */  Container(
             margin: EdgeInsets.symmetric(horizontal: 5.0.w, vertical: 3.0.h),
             child: Form(
               key: _formKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Row(
+                /*  Row(
                     children: [
                       Expanded(child: Theme(
                         data: Theme.of(context).copyWith(primaryColor: Style
@@ -245,7 +246,7 @@ class _Connect_usPageState extends State<Connect_usPage> {
                           FocusScope.of(context).unfocus();
                         }
                     ),),
-                  SizedBox(height: 4.0.h,),
+                  *///SizedBox(height: 4.0.h,),
                   Container(
                       decoration: Style.BoxDecorationBoxShadowGreyColor,
                       padding: EdgeInsets.symmetric(
@@ -255,7 +256,7 @@ class _Connect_usPageState extends State<Connect_usPage> {
                         data: Theme.of(context).copyWith(
                             primaryColor: Style.SecondryColor),
                         child: TextFormField(
-                            maxLines: 3,
+                            maxLines: 6,
                              controller: commentController,
                             cursorColor: Style.SecondryColor,
                             style: TextStyle(

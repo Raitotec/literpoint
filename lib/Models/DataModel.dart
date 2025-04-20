@@ -8,7 +8,7 @@ class DataModel {
   String? desc;
   String? city;
   String? icon;
-
+  bool? selected;
 
 
   DataModel.fromJson(Map<String, dynamic> json) {
@@ -27,6 +27,7 @@ class DataModel {
     city= json['city']!=null?json['city']:"";
 
     icon = json['icon']!= null?json['icon'] :"";
+    selected=false;
   }
 
   DataModel(this.id, this.name,this.img,this.desc , this.icon);

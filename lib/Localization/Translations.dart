@@ -725,6 +725,84 @@ String get work_hours {
       name: 'Recharge_wallet',
     );
   }
+  String get Service_Evaluation {
+    return Intl.message(
+      'Service_Evaluation',
+      name: 'Service_Evaluation',
+    );
+  }
+  String get Loyalty_System {
+    return Intl.message(
+      'Loyalty_System',
+      name: 'Loyalty_System',
+    );
+  }
+  String get Electronic_Wallet {
+    return Intl.message(
+      'Electronic_Wallet',
+      name: 'Electronic_Wallet',
+    );
+  }
+  String get our_values {
+    return Intl.message(
+      'our_values',
+      name: 'our_values',
+    );
+  }
+  String get our_vision {
+    return Intl.message(
+      'our_vision',
+      name: 'our_vision',
+    );
+  }
+  String get our_mission {
+    return Intl.message(
+      'our_mission',
+      name: 'our_mission',
+    );
+  }
+  String get our_slogan {
+    return Intl.message(
+      'our_slogan',
+      name: 'our_slogan',
+    );
+  } String get Points_balance {
+    return Intl.message(
+      'Points_balance',
+      name: 'Points_balance',
+    );
+  }
+  String get Wallet_balance {
+    return Intl.message(
+      'Wallet_balance',
+      name: 'Wallet_balance',
+    );
+  } String get Offers_discounts {
+    return Intl.message(
+      'Offers_discounts',
+      name: 'Offers_discounts',
+    );
+  }
+String get get_Offer {
+    return Intl.message(
+      'get_Offer',
+      name: 'get_Offer',
+    );
+  }
+
+String get Point {
+    return Intl.message(
+      'Point',
+      name: 'Point',
+    );
+  }
+
+String get get_Point {
+    return Intl.message(
+      'get_Point',
+      name: 'get_Point',
+    );
+  }
 
 
 }

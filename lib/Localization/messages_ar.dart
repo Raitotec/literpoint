@@ -136,5 +136,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "Recharge_balance":MessageLookupByLibrary.simpleMessage("شحن الرصيد"),
     "balance":MessageLookupByLibrary.simpleMessage("الرصيد"),
     "Recharge_wallet":MessageLookupByLibrary.simpleMessage("شحن المحفظة"),
+    "Service_Evaluation":MessageLookupByLibrary.simpleMessage("تقييم الخدمات"),
+    "Loyalty_System":MessageLookupByLibrary.simpleMessage("نظام الولاء"),
+    "Electronic_Wallet":MessageLookupByLibrary.simpleMessage("المحفظة الالكترونية"),
+    "our_slogan":MessageLookupByLibrary.simpleMessage("شعارنا"),
+    "our_mission":MessageLookupByLibrary.simpleMessage("رسالتنا"),
+    "our_vision":MessageLookupByLibrary.simpleMessage("رؤيتنا"),
+    "our_values":MessageLookupByLibrary.simpleMessage("قيمنا"),
+    "Points_balance":MessageLookupByLibrary.simpleMessage("رصيد النقاط"),
+    "Wallet_balance":MessageLookupByLibrary.simpleMessage("رصيد المحفظة"),
+    "Offers_discounts":MessageLookupByLibrary.simpleMessage("عروض و خصومات"),
+    "get_Offer":MessageLookupByLibrary.simpleMessage("احصل على العرض"),
+    "Point":MessageLookupByLibrary.simpleMessage("نقطة"),
+    "get_Point":MessageLookupByLibrary.simpleMessage("اكسب نقاط"),
   };
 }

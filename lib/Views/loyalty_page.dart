@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:gas_services_new/Localization/Translations.dart';
+import 'package:gas_services_new/Shared_View/AnimatedButton.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:sizer/sizer.dart';
@@ -10,19 +11,18 @@ import '../Constans/Style.dart';
 import '../Shared_Data/DelegateData.dart';
 import '../Shared_Data/formatDateTime.dart';
 import '../Shared_View/AlertView.dart';
-import '../Shared_View/AnimatedButton.dart';
 import '../Shared_View/AppBarView.dart';
 import '../Shared_View/DrawerView.dart';
 
-class BalancePage extends StatefulWidget {
+class LoyaltySystemPage extends StatefulWidget {
 
-  BalancePage({Key? key}) : super(key: key);
+  LoyaltySystemPage({Key? key}) : super(key: key);
 
   @override
   _AboutUsPageState createState() => _AboutUsPageState();
 }
 
-class _AboutUsPageState extends State<BalancePage> {
+class _AboutUsPageState extends State<LoyaltySystemPage> {
 
   bool _isLoading = false;
   String data="";
@@ -39,7 +39,7 @@ class _AboutUsPageState extends State<BalancePage> {
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
         appBar: AppBarWithBack(
-            context, Translations.of(context)!.Recharge_wallet),
+            context, Translations.of(context)!.Loyalty_System),
         drawer: DrawerList(context),
         body: LoadingOverlay(
             child: Container(
@@ -62,56 +62,40 @@ class _AboutUsPageState extends State<BalancePage> {
 
   Widget FormUI(BuildContext context) {
     if(login)
-      {
-        return Container();
-      }
+    {
+      return Container();
+    }
     else {
       return SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(height: 2.0.h,),
-           Stack(
-             children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 8.0.h,horizontal: 4.0.w),
+                    decoration: Style.BoxDecorationRadius,
+                    child: Row(
+                    children: [
+                      Expanded(child: Column(
+                        children: [
+                          SizedBox(height: 2.0.h,),
+                          Text(Translations.of(context)!.Loyalty_System,style: Style.MainText14Bold,),
 
+                          SizedBox(height: 1.0.h,),
+                          Text(data + " "+ Translations.of(context)!.Point,style: Style.MainText14,),
+                          SizedBox(height: 2.0.h,),
+                          AnimatedButton(text: Translations.of(context)!.get_Point, onTapped: StartFun)
+                        ],
+                      )),
 
-               Row(children: [
-                 Expanded(child:
-                 Container(
-                   margin: EdgeInsets.symmetric(vertical: 8.0.h,horizontal: 4.0.w),
-                   decoration: Style.BoxDecorationRadius,
-                   height: 20.0.h,child: Row(
-children: [
-  Expanded(child: Column(
-    children: [
-      SizedBox(height: 2.0.h,),
-      Text(Translations.of(context)!.Wallet_balance,style: Style.MainText14Bold,),
+                       Expanded(child: Image(image: AssetImage("lib/assets/Point.png"),fit: BoxFit.contain,height: 15.0.h,),
+                    //   )
+                  )
+                    ],
+                  ),),
+              ],
+            )
 
-      SizedBox(height: 1.0.h,),
-      Text(data,style: Style.MainText14,),
-
-      AnimatedButton(text: Translations.of(context)!.Connect_us, onTapped: StartFun),
-
-    ],
-  )),
-  Expanded(child: Container())
-],
-                 ),),)
-               ],),
-               Row(children: [
-                 Expanded(child: Container()),
-                 Expanded(child:
-                 // Container(  margin: EdgeInsets.symmetric(vertical: 2.0.h,horizontal: 4.0.w), height: 30.0,child:
-                 Image(image: AssetImage("lib/assets/balance.png"),fit: BoxFit.cover,height: 35.0.h,),
-                   //   )
-                 )
-               ],),
-             ],
-           )
-
-
-          ],
-        ),
       );
     }
   }
