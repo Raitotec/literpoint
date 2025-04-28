@@ -26,3 +26,4 @@ const String splashRoute = "splashRoute";
 const String BalanceRoute = "BalanceRoute";
 const String NewOfferRoute = "NewOfferRoute";
 const String LoyaltySystemRoute = "LoyaltySystemRoute";
+const String ServicesReviewsRoute = "ServicesReviewsRoute";

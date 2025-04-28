@@ -146,7 +146,7 @@ DrawerList(BuildContext context,{int id=0})
 
                    Navigator.pushNamed(context, NewServiceRoute,arguments: value);
                  },),
-             Drawer_Items("icon14", Translations.of(context)!.Service_Evaluation, context, BalanceRoute),
+             Drawer_Items("icon14", Translations.of(context)!.Service_Evaluation, context, ServicesReviewsRoute),
              Drawer_Items("icon15", Translations.of(context)!.Loyalty_System, context, LoyaltySystemRoute),
              Drawer_Items("icon16", Translations.of(context)!.Electronic_Wallet, context, BalanceRoute),
 
@@ -242,6 +242,7 @@ Drawer_itemTab( BuildContext context, String route)async
        // await removeCompanyDate();
         Navigator.pop(context);
         Navigator.pushNamed(context, "startRoute");
+        
       }
       else
         {

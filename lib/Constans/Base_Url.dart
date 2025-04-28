@@ -20,6 +20,7 @@ const String qr_code = "qr-code";
 const String newServices = "newServices";
 const String balance = "customers/balance";
 const String branches = "branches";
+const String AppMainPage ="App-Main-Page";
 
 
 

@@ -4,6 +4,7 @@ import 'package:gas_services_new/Constans/Base_Url.dart';
 import 'package:gas_services_new/Localization/Translations.dart';
 import 'package:gas_services_new/Models/AboutModel.dart';
 import 'package:gas_services_new/Models/DataModel.dart';
+import 'package:gas_services_new/Shared_Data/LanguageData.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:sizer/sizer.dart';
@@ -26,7 +27,7 @@ class AboutUsPage extends StatefulWidget {
 class _AboutUsPageState extends State<AboutUsPage> {
 
   bool _isLoading = false;
-  AboutModel data= AboutModel("", "");
+  AboutModel? data;
   List<DataModel> branches=<DataModel>[];
 
   @override
@@ -62,6 +63,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
           SizedBox(height: 3.0.h,),
           Image(image: AssetImage('lib/assets/logo.png'), width: 60.0.w, height: 17.0.h,),
          // Text(Translations.of(context)!.New_user,style: Style.Secondry16Bold,),
+          if(data != null)
          Container(
             margin: EdgeInsets.symmetric(horizontal: 4.0.w, vertical: 3.0.h),
             child: Column(
@@ -69,41 +71,17 @@ class _AboutUsPageState extends State<AboutUsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   title(Translations.of(context)!.our_slogan),
-                  des(Translations.of(context)!.our_slogan),
+                  des(LanguageData.languageData=="ar"?data!.sloganAR!:data!.sloganEN!),
                   SizedBox(height: 2.0.h,),
                   title(Translations.of(context)!.our_mission),
-                  des(Translations.of(context)!.our_mission),
+                  des(LanguageData.languageData=="ar"?data!.ourMessageAR!:data!.ourMessageEN!),
                   SizedBox(height: 2.0.h,),
                   title(Translations.of(context)!.our_vision),
-                  des(Translations.of(context)!.our_vision),
+                  des(LanguageData.languageData=="ar"?data!.ourVisionAR!:data!.ourVisionEN!),
                   SizedBox(height: 2.0.h,),
                   title(Translations.of(context)!.our_values),
-                  des(Translations.of(context)!.our_values),
-                  SizedBox(height: 2.0.h,),
-                  /*
-                  Row(children: [
-                  Expanded(child: Text(data.description!, style: Style.MainText14,
-                  )),
-                  ],),
-
-                  SizedBox(height: 2.0.h,),
-                  Container(decoration: Style.BoxDecorationRadius,
-                    padding: EdgeInsets.symmetric(vertical: 0.5.h,horizontal: 4.0.w),
-                    child: Text(Translations.of(context)!.work_hours, style: Style.MainText14Bold),
-                  ),
-                  Container(
-        margin: EdgeInsets.symmetric(vertical: 0.5.h,horizontal: 4.0.w),
-        child:  Row(children: [
-                    Expanded(child: Text(data.work_times!, style: Style.MainText14,
-                    )),
-                  ],)),
-                  SizedBox(height: 2.0.h,),
-                  Container(
-                    decoration: Style.BoxDecorationRadius,
-                    padding: EdgeInsets.symmetric(vertical: 0.5.h,horizontal: 4.0.w),
-                    child: Text(Translations.of(context)!.branches, style: Style.MainText14Bold),
-                  ),
-                  if(branches != null &&branches.length>0)
+                  if((LanguageData.languageData=="ar"&& data!.ourValuesAR!=null && data!.ourValuesAR!.length>0)||
+                      (LanguageData.languageData=="en"&& data!.ourValuesEN!=null && data!.ourValuesEN!.length>0))
                   ListView.builder(
                     shrinkWrap:true,// -> Add this here
                     physics:NeverScrollableScrollPhysics(),// -> And this one
@@ -113,15 +91,22 @@ class _AboutUsPageState extends State<AboutUsPage> {
                           mainAxisAlignment:MainAxisAlignment.start ,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                         Container(
-                             child:  Text((index+1).toString()+"  ",style: Style.Secondry12Bold,),
-                         margin: EdgeInsets.symmetric(vertical: 0.5.h),),
-                          Expanded(child: Text( branches[index].name!+" - "+branches[index].city!, style: Style.MainText14,
-                          )),
-                        ],)),
-                    itemCount: branches.length,
+                            Container(decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Style.SecondryColor
+                            ),
+                              height: 3.0.h,
+                              width: 2.0.w,
+                              margin: EdgeInsets.only(top: 0.2.h),
+                            ),
+                            SizedBox(width: 2.0.w,),
+                            Expanded(child: Text( LanguageData.languageData=="ar"? data!.ourValuesAR![index]:data!.ourValuesEN![index], style: Style.MainText14,
+                            )),
+                          ],)),
+                    itemCount:LanguageData.languageData=="ar"? data!.ourValuesAR!.length:data!.ourValuesEN!.length,
                   ),
-*/
+                  SizedBox(height: 2.0.h,),
+
           ]))
 
 
@@ -164,14 +149,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
       });
     }
     hideLoading();
-    showLoading();
-    var xx= await GetBranches(context);
-    if(xx != null) {
-      setState(() {
-        branches = xx!;
-      });
-    }
-    hideLoading();
+
   }
 
   void showLoading() {

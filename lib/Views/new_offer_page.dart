@@ -2,12 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:gas_services_new/Localization/Translations.dart';
 import 'package:gas_services_new/Models/DataModel.dart';
+import 'package:gas_services_new/Shared_Data/LanguageData.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Api/DataApi.dart';
 import '../Constans/Style.dart';
+import '../Models/MainModel.dart';
 import '../Shared_Data/formatDateTime.dart';
 import '../Shared_View/AlertView.dart';
 import '../Shared_View/AnimatedButton.dart';
@@ -15,7 +17,7 @@ import '../Shared_View/AppBarView.dart';
 import '../Shared_View/DrawerView.dart';
 
 class NewOfferPage extends StatefulWidget {
-  final DataModel data;
+  final OffersAndDiscounts data;
   NewOfferPage({required this.data,Key? key}) : super(key: key);
 
   @override
@@ -64,8 +66,8 @@ class _NewOfferPageState extends State<NewOfferPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(height: 4.0.h,),
-          (widget.data!.img !=null && widget.data!.img!.length>0) ?
-          Image.network(widget.data!.img!,
+          (widget.data!.image !=null && widget.data!.image!.length>0) ?
+          Image.network(widget.data!.image!,
             fit: BoxFit.contain,
             height: 18.0.h,
             errorBuilder: (context, url, error) => Container(),
@@ -94,15 +96,15 @@ class _NewOfferPageState extends State<NewOfferPage> {
              // decoration: Style.BoxDecorationRadius,
               padding: EdgeInsets.symmetric(vertical: 0.5.h,horizontal: 4.0.w),
               child:    Row(children: [
-                    Expanded(child: Text(widget.data.desc!, style: Style.MainText14,
+                    Expanded(child: Text( LanguageData.languageData=="ar"? widget.data.descriptionAr!:widget.data.descriptionEn!, style: Style.MainText14,
                     )),
                   ],)),
                   SizedBox(height: 5.0.h,),
-            Container(
+           /* Container(
               margin: EdgeInsets.symmetric(horizontal: 14.0.w),
               child:
                   AnimatedButton(text:Translations.of(context)!.get_Offer,onTapped: startFun,)
-            )
+            )*/
                 ],
               ),
 
@@ -117,8 +119,7 @@ class _NewOfferPageState extends State<NewOfferPage> {
   Future<void> GetData()
   async {
     showLoading();
-    print(widget.data.name);
-    print(widget.data.desc);
+
     hideLoading();
   }
 

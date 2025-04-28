@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:gas_services_new/Models/DataModel.dart';
+import 'package:gas_services_new/Models/MainModel.dart';
 import 'package:gas_services_new/Models/RequestsModel.dart';
 import 'package:gas_services_new/Models/ServicesModel.dart';
+import 'package:gas_services_new/Views/ServicesReviewsPage.dart';
 import 'package:gas_services_new/Views/balance_page.dart';
 import 'package:gas_services_new/Views/new_service_page.dart';
 import 'package:gas_services_new/Views/services_details_page.dart';
@@ -132,6 +134,10 @@ class CustomRouter {
         {
           return MaterialPageRoute(builder: (_) => StationReviewsPage());
         }
+        case ServicesReviewsRoute:
+        {
+          return MaterialPageRoute(builder: (_) => ServicesReviewsPage());
+        }
         case StationTransportationRoute:
         {
           return MaterialPageRoute(builder: (_) => StationTransportationPage());
@@ -146,7 +152,7 @@ class CustomRouter {
         }
         case NewOfferRoute:
         {
-          final args= settings.arguments as DataModel;
+          final args= settings.arguments as OffersAndDiscounts;
           return MaterialPageRoute(builder: (_) => NewOfferPage(data: args,));
         }
       default:

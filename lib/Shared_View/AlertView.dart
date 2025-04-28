@@ -6,6 +6,7 @@ import 'package:sizer/sizer.dart';
 import 'package:store_redirect/store_redirect.dart';
 import '../Constans/Style.dart';
 import '../Localization/Translations.dart';
+import '../Routes/route_constants.dart';
 
 AlertView(BuildContext context, String image,  String Title, String Description, {int id=0})async {
   await Alert(
@@ -48,7 +49,6 @@ AlertView(BuildContext context, String image,  String Title, String Description,
 
 AlertView2(BuildContext context)async {
   await Alert(
-
       context: context,
       title: Translations.of(context)!.Please,
       desc: Translations.of(context)!.Login_btn,
@@ -60,7 +60,7 @@ AlertView2(BuildContext context)async {
             style: Style.BlackText12Bold,
           ),
           onPressed: () {
-            Navigator.pushNamed(context, "startRoute");
+            Navigator.pushNamedAndRemoveUntil(context, startRoute,(Route<dynamic> r)=>false);
 
           },
           color: Colors.black12,
@@ -74,8 +74,12 @@ AlertView2(BuildContext context)async {
             style: Style.BlackText12Bold,
           ),
           onPressed: () {
-
-              Navigator.pop(context);
+            try {
+              Navigator.pushNamedAndRemoveUntil(context, homeRoute,(Route<dynamic> r)=>false);
+            }
+            catch(e)
+            {
+           }
 
           },
           color: Colors.black12,
@@ -85,6 +89,7 @@ AlertView2(BuildContext context)async {
         ),
       ],
       style: AlertStyle(overlayColor:  Colors.black54, titleStyle: Style.GreyText12, descStyle: Style.GreyText12,
+        isCloseButton: false
       )
   ).show();
 }

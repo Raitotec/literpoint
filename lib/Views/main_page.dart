@@ -1,6 +1,8 @@
 import 'package:banner_image/banner_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gas_services_new/Models/DataModel.dart';
+import 'package:gas_services_new/Models/MainModel.dart';
+import 'package:gas_services_new/Shared_Data/BalancePointData.dart';
 import 'package:gas_services_new/Views/new_offer_page.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:sizer/sizer.dart';
@@ -23,13 +25,8 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   bool _isLoading = false;
 
-  final list = [
-    'https://picsum.photos/600/207',
-    'https://picsum.photos/600/205',
-    'https://picsum.photos/600/206',
-  ];
-  List<DataModel> offers=<DataModel>[];
-
+  List<String> list = [];
+  List<OffersAndDiscounts> offers=<OffersAndDiscounts>[];
 
   @override
   void initState() {
@@ -70,8 +67,8 @@ class _MainScreenState extends State<MainScreen> {
           ),
           Row(
             children: [
-              PointView("main1",Translations.of(context)!.Points_balance,"1231"),
-              PointView("main2",Translations.of(context)!.Wallet_balance,"1231"),
+              PointView("main1",Translations.of(context)!.Points_balance,BalancePointData.Point),
+              PointView("main2",Translations.of(context)!.Wallet_balance,BalancePointData.Balance),
             ],
           ),
 
@@ -208,7 +205,7 @@ class _MainScreenState extends State<MainScreen> {
   {
     if (offers != null && offers!.length > 0) {
       return SizedBox(  // Wrap with SizedBox to provide fixed height
-          height: 10.0.h,    // Adjust this value based on your needs
+          height: 12.0.h,    // Adjust this value based on your needs
           child:  ListView.builder(
               scrollDirection: Axis.horizontal,
              // shrinkWrap: true, // Add this to prevent scrolling issues
@@ -224,12 +221,12 @@ class _MainScreenState extends State<MainScreen> {
                       Navigator.pushNamed(context, NewOfferRoute, arguments: offers[index]);
                     },
                     child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 2.0.w,vertical: 1.0.h),
+                        padding: EdgeInsets.symmetric(horizontal: 2.0.w,vertical: 0.2.h),
                         margin: EdgeInsets.symmetric(horizontal: 2.0.w),
                         decoration: BoxDecoration(
                             color: Style.WhiteColor,
                             borderRadius: BorderRadius.circular(15.0),
-                            border: NewServicesData.serviceData![index].selected!
+                            border: offers[index].selected!
                                 ? Border.all(color: Style.MainColor)
                                 : Border.all(color: Style.LightGreyColor),
                             boxShadow: [BoxShadow(
@@ -246,13 +243,13 @@ class _MainScreenState extends State<MainScreen> {
                                mainAxisAlignment: MainAxisAlignment.center,
                                crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text(Translations.of(context)!.Offers_discounts,style: Style.MainText12,),
+                                Text(offers[index].name.toString(),style: Style.MainText12,),
                                 SizedBox(height: 1.0.h,),
-                                Text("10 %",style: Style.MainText12.copyWith(fontWeight: FontWeight.bold),)
+                                Text(offers[index].discountPercentage!+" "+"%",style: Style.MainText12.copyWith(fontWeight: FontWeight.bold),)
                               ],
                             ),
-                            SizedBox(width: 2.0.w,),
-                           Image.network(offers[index].img!, height: 6.0.h,)
+                            SizedBox(width: 4.0.w,),
+                           Image.network(offers[index].image!, height: 20.0.h,)
                           ],
                         ),
                     ));
@@ -280,11 +277,25 @@ class _MainScreenState extends State<MainScreen> {
         if(x != null && x.length>0) {
           setState(() {
             NewServicesData.serviceData = x;
-            offers=x;
+
           });
         }
       }
       catch(e){}
+    var xx= await AppMainPageFun(context);
+    if(xx != null )
+      {
+        setState(() {
+          list=[];
+          for(var y in xx.slideImages!)
+            {
+              list.add(y.image.toString());
+            }
+          offers=xx.offersAndDiscounts!;
+          BalancePointData.Balance=xx.walletBalance!;
+          BalancePointData.Point=xx.pointsBalance!;
+        });
+      }
     hideLoading();
   }
 

@@ -13,7 +13,9 @@ import '../Constans/Style.dart';
 import '../Localization/Translations.dart';
 import '../Routes/route_constants.dart';
 import '../Shared_Data/CompanyData.dart';
+import '../Shared_Data/DelegateData.dart';
 import '../Shared_View/AlertView.dart';
+import '../Shared_View/AnimatedButton.dart';
 import '../Shared_View/AppBarView.dart';
 
 
@@ -36,9 +38,12 @@ class _Connect_usPageState extends State<Connect_usPage> {
   List<DataModel> data=<DataModel>[];
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    DataFun();
+  void initState() {
+    super.initState();
+
+    Future.delayed(Duration.zero, () {
+      GetData();
+    });
   }
 
   @override
@@ -282,33 +287,11 @@ class _Connect_usPageState extends State<Connect_usPage> {
                               FocusScope.of(context).unfocus();
                             }
                         ),)),
-                  Center(child: InkWell(child: Container(
-                    padding: EdgeInsets.fromLTRB(10.0.w, 0.5.h, 10.0.w, 0.5.h),
-                    margin: EdgeInsets.fromLTRB(0, 10.0.h, 0, 4.0.h),
-                    decoration: Style.ButtonDecoration,
 
-                        child: Text(
-                          Translations.of(context)!.send,
-                          style: TextStyle(color: Colors.white,
-                              fontSize: 15.0.sp),
-                          textAlign: TextAlign.center,
-
-                        ),
-
-                    ),
-                      onTap: () async {
-                        if (_formKey.currentState!.validate()) {
-                          showLoading();
-                          var res = await Contact_us(context, mobileController.text, name1Controller.text+name2Controller.text, commentController.text,emailController.text,SelectData.id.toString());
-                          hideLoading();
-                          if (res == true) {
-                            Navigator.pushNamed(context, homeRoute);
-                          }
-                          hideLoading();
-                        }
-                      }
-                  )),
-
+                  Container(
+                      margin: EdgeInsets.symmetric(horizontal: 14.0.w, vertical: 10.0.h),
+                      child:
+                      AnimatedButton(text:Translations.of(context)!.send,onTapped: startFun,))
 
                 ],
               ),
@@ -333,9 +316,9 @@ class _Connect_usPageState extends State<Connect_usPage> {
     });
   }
 
-  void DataFun()
-  {
-    showLoading();
+  Future<void> GetData()
+  async {
+  /*  showLoading();
     setState(() {
       data=<DataModel>[
          DataModel(0, Translations.of(context)!.inquiry ,"","",""),
@@ -344,6 +327,30 @@ class _Connect_usPageState extends State<Connect_usPage> {
       ];
       SelectData=data[0];
     });
+    hideLoading();*/
+    showLoading();
+
+    if (DelegateData.delegateData != null &&
+        DelegateData.delegateData!.id! > 0) {
+      hideLoading();
+    }
+    else {
+
+      await AlertView2(context);
+    }
     hideLoading();
+  }
+
+  Future<void> startFun() async {
+    if (_formKey.currentState!.validate()) {
+      showLoading();
+      var res = await Contact_us(context, mobileController.text,
+          name1Controller.text+name2Controller.text, commentController.text,emailController.text,SelectData.id.toString());
+      hideLoading();
+      if (res == true) {
+        Navigator.pushNamed(context, homeRoute);
+      }
+      hideLoading();
+    }
   }
 }

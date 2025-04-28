@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:gas_services_new/Models/LineChartModel.dart';
+import 'package:gas_services_new/Models/MainModel.dart';
 import 'package:gas_services_new/Shared_Data/DelegateData.dart';
 
 import '../Constans/Api_Services.dart';
@@ -13,6 +14,76 @@ import '../Models/DelegateDataModel.dart';
 import '../Shared_Data/LanguageData.dart';
 import '../Shared_Data/NetworkCheckData.dart';
 import '../Shared_View/AlertView.dart';
+
+Future<MainModel?> AppMainPageFun(BuildContext context) async {
+  try {
+    bool InternetConntected = await hasNetwork();
+    if (InternetConntected) {
+      try {
+        var lang= LanguageData.languageData;
+        Map<String, String> data;
+        if(DelegateData.delegateData!=null && DelegateData.delegateData!.id!= null) {
+          data = {
+            "lang": lang,
+            "customer_id": DelegateData.delegateData!.id.toString()
+          };
+        }
+        else
+          {
+            data = {
+              "lang": lang,
+            };
+          }
+        final response = await Get_Data(AppMainPage, data);
+        print(response.body);
+        if (response.statusCode == 200) {
+          Map valueMap = jsonDecode(response.body);
+          if (valueMap['code'] == 200) {
+            print( " fn_About_us200 ::: ${valueMap['message']} ${valueMap['data']}");
+            // await AlertView(context, "success", Translations.of(context)!.Ok,Translations.of(context)!.success_msg);
+            return  valueMap['data'] != null ? new MainModel.fromJson(valueMap['data']) : null;
+          }
+          else {
+            await AlertView(
+                context, "error", Translations.of(context)!.ErrorTitle,valueMap['data'].toString());
+            print( "fn_MainModel_us400 ::: ${valueMap['message']} ${valueMap['data']}");
+            return null;
+          }
+        }
+        else {
+          await AlertView(
+              context, "error", Translations.of(context)!.ErrorTitle,
+              "error_statusCode ${response.statusCode} ${response.reasonPhrase}");
+          print( "fn_MainModelstatusCode400 ::: ${response.statusCode} ");
+          return null;
+        }
+      }
+      catch(e)
+      {
+        await AlertView(
+            context, "error", Translations.of(context)!.ErrorTitle,
+            "Exception : ${e.toString()}");
+        print( "fn_MainModelException ::: ${e} ");
+        return null;
+      }
+    }
+    else {
+      await AlertView(
+          context, "error", Translations.of(context)!.ErrorTitle,
+          Translations.of(context)!.CheckInternet);
+      print("fn_MainModelException ::: checkInternet ");
+      return null;
+    }
+  }
+  catch (e) {
+    await AlertView(
+        context, "error", Translations.of(context)!.ErrorTitle,
+        "Exception : ${e.toString()}");
+    print("fn_MainModelException ::: ${e} ");
+    return null;
+  }
+}
+
 
 Future<AboutModel?> About_us(BuildContext context) async {
   try {
@@ -83,12 +154,12 @@ Future<bool?> Contact_us(BuildContext context,String mobile ,String first_name,S
         var lang= LanguageData.languageData;
         print(lang);
         var data = jsonEncode(<String, String>{
-          'phone': mobile,
+         // 'phone': mobile,
           "lang": lang,
-          "email":DelegateData.delegateData!.id.toString(),
-          "name":first_name,
-          "message":comment,
-          "contacttype":contacttype
+          "UserId":DelegateData.delegateData!.id.toString(),
+         // "name":first_name,
+          "Message":comment,
+         // "contacttype":contacttype
         });
         final response = await Post_Data(contact, data);
         print(response.body);

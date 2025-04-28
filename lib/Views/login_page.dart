@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:gas_services_new/Shared_Data/DelegateData.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:sizer/sizer.dart';
 
@@ -28,6 +29,14 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwordController = TextEditingController();
   bool _isLoading = false;
 
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(Duration.zero, () {
+      GetData();
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
@@ -164,6 +173,12 @@ class _LoginPageState extends State<LoginPage> {
   void hideLoading() {
     setState(() {
       _isLoading=false;
+    });
+  }
+
+  void GetData() {
+    setState(() {
+      DelegateData.delegateData =null;
     });
   }
 
