@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:gas_services_new/Api/BalancePointApi.dart';
 import 'package:gas_services_new/Localization/Translations.dart';
 import 'package:gas_services_new/Shared_View/AnimatedButton.dart';
 import 'package:loading_overlay/loading_overlay.dart';
@@ -8,6 +9,7 @@ import 'package:sizer/sizer.dart';
 
 import '../Api/DataApi.dart';
 import '../Constans/Style.dart';
+import '../Routes/route_constants.dart';
 import '../Shared_Data/DelegateData.dart';
 import '../Shared_Data/formatDateTime.dart';
 import '../Shared_View/AlertView.dart';
@@ -84,7 +86,7 @@ class _AboutUsPageState extends State<LoyaltySystemPage> {
                           SizedBox(height: 1.0.h,),
                           Text(data + " "+ Translations.of(context)!.Point,style: Style.MainText14,),
                           SizedBox(height: 2.0.h,),
-                          AnimatedButton(text: Translations.of(context)!.get_Point, onTapped: StartFun)
+                          AnimatedButton(text: Translations.of(context)!.replacement_point, onTapped: StartFun)
                         ],
                       )),
 
@@ -139,5 +141,13 @@ class _AboutUsPageState extends State<LoyaltySystemPage> {
 
 
   Future<void> StartFun()async {
+      showLoading();
+      var x= await ConvertPointsFun(context);
+      hideLoading();
+      if(x==true)
+      {
+        Navigator.pushNamedAndRemoveUntil(context, homeRoute,(Route<dynamic> r)=>false);
+      }
+
   }
 }

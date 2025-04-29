@@ -63,7 +63,8 @@ dependencies:
   map_location_picker: ^1.2.6
   banner_image: ^1.0.9
   #google_maps_place_picker_mb: ^3.1.2
-
+  mobile_scanner: ^6.0.3
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   flutter_test:

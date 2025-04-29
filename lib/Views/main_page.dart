@@ -147,7 +147,7 @@ class _MainScreenState extends State<MainScreen> {
                         NewServicesData.serviceData!.forEach((element) => element.selected = false);
                         NewServicesData.serviceData![index].selected = true;
                       });
-                      Navigator.pushNamed(context, NewServiceRoute, arguments: NewServicesData.serviceData![index]);
+                      Navigator.pushNamed(context, ServicesReviewsRoute);
                     },
                     child: Container(
                         alignment: Alignment.center,

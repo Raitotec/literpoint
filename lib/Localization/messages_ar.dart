@@ -154,5 +154,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "des":MessageLookupByLibrary.simpleMessage("تفاصيل"),
     "enter_des":MessageLookupByLibrary.simpleMessage("ادخل تفاصيل"),
     "enter_amount_valid":MessageLookupByLibrary.simpleMessage("ادخل قيمة الشحن رقم صحيح"),
+    "replacement_point":MessageLookupByLibrary.simpleMessage("استبدال النقاط"),
+    "try_again": MessageLookupByLibrary.simpleMessage(" حاول مره اخري"),
   };
 }

@@ -153,5 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "des":MessageLookupByLibrary.simpleMessage("Description"),
     "enter_des":MessageLookupByLibrary.simpleMessage("Enter Description"),
     "enter_amount_valid":MessageLookupByLibrary.simpleMessage("Please enter a valid amount"),
+    "replacement_point":MessageLookupByLibrary.simpleMessage("Convert Point"),
+    "try_again": MessageLookupByLibrary.simpleMessage("Try Again"),
   };
 }

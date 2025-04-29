@@ -74,3 +74,63 @@ Future<bool?> WalletRequestFun(BuildContext context,String description, String a
     return null;
   }
 }
+Future<bool?> ConvertPointsFun(BuildContext context ) async {
+  try {
+    bool InternetConntected = await hasNetwork();
+    if (InternetConntected) {
+      try {
+        var lang= LanguageData.languageData;
+        print(lang);
+        var data = jsonEncode(<String, String>{
+          "lang": lang,
+            "customer_id" :DelegateData.delegateData!.id.toString(),
+        });
+        final response = await Post_Data(ConvertPoints, data);
+        print(response.body);
+        if (response.statusCode == 200) {
+          Map valueMap = jsonDecode(response.body);
+          if (valueMap['code'] == 200) {
+            print( " fn_ConvertPoints200 ::: ${valueMap['message']} ${valueMap['data']}");
+             await AlertView(context, "success", Translations.of(context)!.Ok,valueMap['data']['message']);
+            return  true;
+          }
+          else {
+            await AlertView(
+                context, "error", Translations.of(context)!.ErrorTitle,valueMap['data'].toString());
+            print( "fn_ConvertPoints400 ::: ${valueMap['message']} ${valueMap['data']}");
+            return null;
+          }
+        }
+        else {
+          await AlertView(
+              context, "error", Translations.of(context)!.ErrorTitle,
+              "error_statusCode ${response.statusCode} ${response.reasonPhrase}");
+          print( "fn_ConvertPointsstatusCode400 ::: ${response.statusCode} ");
+          return null;
+        }
+      }
+      catch(e)
+      {
+        await AlertView(
+            context, "error", Translations.of(context)!.ErrorTitle,
+            "Exception : ${e.toString()}");
+        print( "fn_ConvertPointsException ::: ${e} ");
+        return null;
+      }
+    }
+    else {
+      await AlertView(
+          context, "error", Translations.of(context)!.ErrorTitle,
+          Translations.of(context)!.CheckInternet);
+      print("fn_ConvertPointsException ::: checkInternet ");
+      return null;
+    }
+  }
+  catch (e) {
+    await AlertView(
+        context, "error", Translations.of(context)!.ErrorTitle,
+        "Exception : ${e.toString()}");
+    print("fn_ConvertPointsException ::: ${e} ");
+    return null;
+  }
+}

@@ -831,6 +831,16 @@ String get enter_amount {
       'enter_amount_valid',
       name: 'enter_amount_valid',
     );
+  } String get replacement_point {
+    return Intl.message(
+      'replacement_point',
+      name: 'replacement_point',
+    );
+  }String get try_again {
+    return Intl.message(
+      'try_again',
+      name: 'try_again',
+    );
   }
 
 
