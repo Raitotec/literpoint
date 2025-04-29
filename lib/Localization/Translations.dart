@@ -803,6 +803,35 @@ String get get_Point {
       name: 'get_Point',
     );
   }
+String get amount {
+    return Intl.message(
+      'amount',
+      name: 'amount',
+    );
+  }
+String get enter_amount {
+    return Intl.message(
+      'enter_amount',
+      name: 'enter_amount',
+    );
+  }
+  String get des {
+    return Intl.message(
+      'des',
+      name: 'des',
+    );
+  }
+  String get enter_des {
+    return Intl.message(
+      'enter_des',
+      name: 'enter_des',
+    );
+  } String get enter_amount_valid {
+    return Intl.message(
+      'enter_amount_valid',
+      name: 'enter_amount_valid',
+    );
+  }
 
 
 }

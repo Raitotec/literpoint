@@ -21,6 +21,7 @@ const String newServices = "newServices";
 const String balance = "customers/balance";
 const String branches = "branches";
 const String AppMainPage ="App-Main-Page";
+const String WalletRequest ="Wallet/WalletRequest";
 
 
 

@@ -149,5 +149,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "get_Offer":MessageLookupByLibrary.simpleMessage("احصل على العرض"),
     "Point":MessageLookupByLibrary.simpleMessage("نقطة"),
     "get_Point":MessageLookupByLibrary.simpleMessage("اكسب نقاط"),
+    "amount":MessageLookupByLibrary.simpleMessage("قيمة الشحن"),
+    "enter_amount":MessageLookupByLibrary.simpleMessage("ادخل قيمة الشحن"),
+    "des":MessageLookupByLibrary.simpleMessage("تفاصيل"),
+    "enter_des":MessageLookupByLibrary.simpleMessage("ادخل تفاصيل"),
+    "enter_amount_valid":MessageLookupByLibrary.simpleMessage("ادخل قيمة الشحن رقم صحيح"),
   };
 }

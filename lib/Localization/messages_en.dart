@@ -148,5 +148,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "get_Offer":MessageLookupByLibrary.simpleMessage("Get Offer"),
     "Point":MessageLookupByLibrary.simpleMessage("نقطة"),
     "get_Point":MessageLookupByLibrary.simpleMessage("اكسب نقاط"),
+    "amount":MessageLookupByLibrary.simpleMessage("Amount"),
+    "enter_amount":MessageLookupByLibrary.simpleMessage("Enter Amount"),
+    "des":MessageLookupByLibrary.simpleMessage("Description"),
+    "enter_des":MessageLookupByLibrary.simpleMessage("Enter Description"),
+    "enter_amount_valid":MessageLookupByLibrary.simpleMessage("Please enter a valid amount"),
   };
 }

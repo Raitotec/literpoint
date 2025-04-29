@@ -1,10 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:gas_services_new/Localization/Translations.dart';
+import 'package:gas_services_new/Routes/route_constants.dart';
+import 'package:gas_services_new/Shared_Data/BalancePointData.dart';
+import 'package:gas_services_new/Shared_Data/LanguageData.dart';
+import 'package:gas_services_new/Views/home_page.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:sizer/sizer.dart';
 
+import '../Api/BalancePointApi.dart';
 import '../Api/DataApi.dart';
 import '../Constans/Style.dart';
 import '../Shared_Data/DelegateData.dart';
@@ -13,6 +18,7 @@ import '../Shared_View/AlertView.dart';
 import '../Shared_View/AnimatedButton.dart';
 import '../Shared_View/AppBarView.dart';
 import '../Shared_View/DrawerView.dart';
+import '../Shared_View/border_text_field.dart';
 
 class BalancePage extends StatefulWidget {
 
@@ -23,10 +29,11 @@ class BalancePage extends StatefulWidget {
 }
 
 class _AboutUsPageState extends State<BalancePage> {
-
+  final _formKey = GlobalKey<FormState>();
   bool _isLoading = false;
-  String data="";
   bool login =false;
+  TextEditingController notes= new TextEditingController();
+  TextEditingController amount= new TextEditingController();
 
   @override
   void initState() {
@@ -88,7 +95,7 @@ children: [
       Text(Translations.of(context)!.Wallet_balance,style: Style.MainText14Bold,),
 
       SizedBox(height: 1.0.h,),
-      Text(data,style: Style.MainText14,),
+      Text(BalancePointData.Balance,style: Style.MainText14,),
 
       AnimatedButton(text: Translations.of(context)!.Connect_us, onTapped: StartFun),
 
@@ -116,6 +123,71 @@ children: [
     }
   }
 
+
+  Future<bool?> addNotes() async {
+    return await Alert(
+        context: context,
+        padding: EdgeInsets.all(0),
+        style: AlertStyle(isButtonVisible: false,
+            isCloseButton: true,
+            buttonAreaPadding: EdgeInsets.all(0)),
+        // title: "",
+        content: SingleChildScrollView(child:   Form(
+    key: _formKey,
+    child:Column(
+          children: <Widget>[
+            Container(margin: EdgeInsets.symmetric(vertical: 0.0.h,horizontal: 0.0.w),
+                child:
+                BorderTextField(
+                  onChanged: (String value) async {},
+                  lang: LanguageData.languageData,
+                  controller: amount,
+                  label: Translations.of(context)!.amount,
+                  hint: Translations.of(context)!.enter_amount,
+                  keyboardType: TextInputType.number,
+                  validator: (value){
+                    if (value == null || value.isEmpty) {
+                      return Translations.of(context)!.enter_amount;
+                    }
+                    var res = double.tryParse(value);
+                    if (res == null) {
+                      return Translations.of(context)!.enter_amount_valid;
+                    }
+
+                    if (res <= 0) {
+                      return Translations.of(context)!.enter_amount_valid;
+                    }
+                    return null;
+                  },
+                )),
+            Container(margin: EdgeInsets.symmetric(vertical: 0.5.h,horizontal: 0.0.w),
+                child:
+                BorderTextField(
+                  onChanged: (String value) async {},
+                  lang: LanguageData.languageData,
+                  controller: notes,
+                  label: Translations.of(context)!.des,
+                  hint: Translations.of(context)!.enter_des,
+                  validator: (value){
+                    if (value == null || value.isEmpty) {
+                      return Translations.of(context)!.enter_des;
+                    }
+
+                    return null;
+                  },
+                )),
+            SizedBox(height: 4.0.h,),
+            Container(
+                margin: EdgeInsets.symmetric(horizontal: 14.0.w),
+                child:
+                AnimatedButton(text:Translations.of(context)!.send,onTapped: sendFun,)),
+
+            SizedBox(height: 2.0.h,),
+          ],
+        ),))).show();
+  }
+
+
   Future<void> GetData()
   async {
 
@@ -123,14 +195,6 @@ children: [
 
     if (DelegateData.delegateData != null &&
         DelegateData.delegateData!.id! > 0) {
-      showLoading();
-      var x= await Balance(context,DelegateData.delegateData!.id!.toString());
-      if(x != null) {
-        setState(() {
-          data = x!;
-        });
-      }
-      hideLoading();
     }
     else {
       setState(() {
@@ -155,5 +219,19 @@ children: [
 
 
   Future<void> StartFun()async {
+    await addNotes();
+  }
+
+  Future<void> sendFun()async {
+    if (_formKey.currentState!.validate()) {
+      Navigator.pop(context);
+      showLoading();
+     var x= await WalletRequestFun(context,notes.text,amount.text);
+     hideLoading();
+     if(x==true)
+       {
+         Navigator.pushNamedAndRemoveUntil(context, homeRoute,(Route<dynamic> r)=>false);
+       }
+    }
   }
 }
