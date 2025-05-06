@@ -841,6 +841,16 @@ String get enter_amount {
       'try_again',
       name: 'try_again',
     );
+  }String get edit_data {
+    return Intl.message(
+      'edit_data',
+      name: 'edit_data',
+    );
+  }String get new_noData {
+    return Intl.message(
+      'new_noData',
+      name: 'new_noData',
+    );
   }
 
 

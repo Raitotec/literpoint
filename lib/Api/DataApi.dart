@@ -22,7 +22,7 @@ Future<MainModel?> AppMainPageFun(BuildContext context) async {
       try {
         var lang= LanguageData.languageData;
         Map<String, String> data;
-        if(DelegateData.delegateData!=null && DelegateData.delegateData!.id!= null) {
+        if(DelegateData.delegateData!=null && DelegateData.delegateData!.id!= null && DelegateData.delegateData!.id! >0) {
           data = {
             "lang": lang,
             "customer_id": DelegateData.delegateData!.id.toString()

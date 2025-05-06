@@ -10,6 +10,7 @@ import 'package:sizer/sizer.dart';
 import '../Api/DataApi.dart';
 import '../Constans/Style.dart';
 import '../Routes/route_constants.dart';
+import '../Shared_Data/BalancePointData.dart';
 import '../Shared_Data/DelegateData.dart';
 import '../Shared_Data/formatDateTime.dart';
 import '../Shared_View/AlertView.dart';
@@ -84,7 +85,7 @@ class _AboutUsPageState extends State<LoyaltySystemPage> {
                           Text(Translations.of(context)!.Loyalty_System,style: Style.MainText14Bold,),
 
                           SizedBox(height: 1.0.h,),
-                          Text(data + " "+ Translations.of(context)!.Point,style: Style.MainText14,),
+                          Text(BalancePointData.Point + " "+ Translations.of(context)!.Point,style: Style.MainText14,),
                           SizedBox(height: 2.0.h,),
                           AnimatedButton(text: Translations.of(context)!.replacement_point, onTapped: StartFun)
                         ],
@@ -110,12 +111,6 @@ class _AboutUsPageState extends State<LoyaltySystemPage> {
     if (DelegateData.delegateData != null &&
         DelegateData.delegateData!.id! > 0) {
       showLoading();
-      var x= await Balance(context,DelegateData.delegateData!.id!.toString());
-      if(x != null) {
-        setState(() {
-          data = x!;
-        });
-      }
       hideLoading();
     }
     else {

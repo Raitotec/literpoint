@@ -125,7 +125,7 @@ class _PersonInformationPageState extends State<PersonInformationPage> {
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 14.0.w),
                 child:
-                        AnimatedButton(text:Translations.of(context)!.send,onTapped: startFun,))
+                        AnimatedButton(text:Translations.of(context)!.edit_data,onTapped: startFun,))
 
 
 
@@ -174,17 +174,28 @@ class _PersonInformationPageState extends State<PersonInformationPage> {
 
 
   Future<void> startFun()async {
-    if (_formKey.currentState!.validate()) {
-      showLoading();
-      var res = await EditCustomer(context, mobileController.text,nameController.text,emailController.text);
-      hideLoading();
-      if (res != null) {
-        setState(() {
-          DelegateData.delegateData=res;
-        });
-        Navigator.pushNamed(context, homeRoute);
+    if( nameController.text == DelegateData.delegateData!.name!&&
+    mobileController.text == DelegateData.delegateData!.mobile!&&
+    emailController.text == DelegateData.delegateData!.email!)
+      {
+        await AlertView(
+            context, "error", Translations.of(context)!.Please,Translations.of(context)!.new_noData);
       }
-      hideLoading();
+    else {
+      if (_formKey.currentState!.validate()) {
+        showLoading();
+        var res = await EditCustomer(
+            context, mobileController.text, nameController.text,
+            emailController.text);
+        hideLoading();
+        if (res != null) {
+          setState(() {
+            DelegateData.delegateData = res;
+          });
+          Navigator.pushNamed(context, homeRoute);
+        }
+        hideLoading();
+      }
     }
   }
 }

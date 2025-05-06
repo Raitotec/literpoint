@@ -156,5 +156,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enter_amount_valid":MessageLookupByLibrary.simpleMessage("ادخل قيمة الشحن رقم صحيح"),
     "replacement_point":MessageLookupByLibrary.simpleMessage("استبدال النقاط"),
     "try_again": MessageLookupByLibrary.simpleMessage(" حاول مره اخري"),
+    "edit_data": MessageLookupByLibrary.simpleMessage("تعديل بيانات"),
+    "new_noData":MessageLookupByLibrary.simpleMessage("لا يمكن التعديل لا يوجد بيانات جديدة"),
   };
 }

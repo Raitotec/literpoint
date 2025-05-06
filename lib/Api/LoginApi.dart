@@ -28,7 +28,7 @@ Future<DelegateDataModel?> Login(BuildContext context,String mobile ) async {
 
     final response = await Post_Data(login, data);
     print(response.body);
-    if (response.statusCode == 200) {
+  //  if (response.statusCode == 200) {
       Map valueMap = jsonDecode(response.body);
       if (valueMap['code'] == 200) {
         print( " fn_Login200 ::: ${valueMap['message']} ${valueMap['data']}");
@@ -39,18 +39,18 @@ Future<DelegateDataModel?> Login(BuildContext context,String mobile ) async {
       }
       else {
           await AlertView(
-              context, "error", Translations.of(context)!.ErrorTitle,valueMap['data'].toString());
+              context, "error", Translations.of(context)!.ErrorTitle,valueMap['message'].toString());
         print( "fn_Login400 ::: ${valueMap['message']} ${valueMap['data']}");
         return null;
       }
-    }
+    /*}
     else {
     await AlertView(
           context, "error", Translations.of(context)!.ErrorTitle,
           "error_statusCode ${response.statusCode} ${response.reasonPhrase}");
       print( "fn_LoginstatusCode400 ::: ${response.statusCode} ");
       return null;
-    }
+    }*/
   }
   catch(e)
   {
@@ -94,7 +94,7 @@ Future<bool?> Registration(BuildContext context,String mobile ,String first_name
         });
         final response = await Post_Data(registration, data);
         print(response.body);
-        if (response.statusCode == 200) {
+      //  if (response.statusCode == 200) {
           Map valueMap = jsonDecode(response.body);
           if (valueMap['code'] == 200) {
             print( " fn_Registration200 ::: ${valueMap['message']} ${valueMap['data']}");
@@ -104,18 +104,18 @@ Future<bool?> Registration(BuildContext context,String mobile ,String first_name
           }
           else {
             await AlertView(
-                context, "error", Translations.of(context)!.ErrorTitle,valueMap['data'].toString());
+                context, "error", Translations.of(context)!.ErrorTitle,valueMap['message'].toString());
             print( "fn_Registration400 ::: ${valueMap['message']} ${valueMap['data']}");
             return false;
           }
-        }
+      /*  }
         else {
           await AlertView(
               context, "error", Translations.of(context)!.ErrorTitle,
               "error_statusCode ${response.statusCode} ${response.reasonPhrase}");
           print( "fn_LRegistrationstatusCode400 ::: ${response.statusCode} ");
           return false;
-        }
+        }*/
       }
       catch(e)
       {
@@ -157,7 +157,7 @@ Future<DelegateDataModel?> Verifycode(BuildContext context,String mobile ,String
         });
         final response = await Post_Data(verifycode, data);
         print(response.body);
-        if (response.statusCode == 200) {
+     //   if (response.statusCode == 200) {
           Map valueMap = jsonDecode(response.body);
           if (valueMap['code'] == 200) {
             print( " fn_Verifycode200 ::: ${valueMap['message']} ${valueMap['data']}");
@@ -168,18 +168,18 @@ Future<DelegateDataModel?> Verifycode(BuildContext context,String mobile ,String
           }
           else {
             await AlertView(
-                context, "error", Translations.of(context)!.ErrorTitle,valueMap['data'].toString());
+                context, "error", Translations.of(context)!.ErrorTitle,valueMap['message'].toString());
             print( "fn_Verifycode400 ::: ${valueMap['message']} ${valueMap['data']}");
             return null;
           }
-        }
+      /*  }
         else {
           await AlertView(
               context, "error", Translations.of(context)!.ErrorTitle,
               "error_statusCode ${response.statusCode} ${response.reasonPhrase}");
           print( "fn_VerifycodestatusCode400 ::: ${response.statusCode} ");
           return null;
-        }
+        }*/
       }
       catch(e)
       {
@@ -222,7 +222,7 @@ Future<DelegateDataModel?> EditCustomer(BuildContext context,String mobile ,Stri
         });
         final response = await Post_Data(editcustomer+"/"+DelegateData.delegateData!.id!.toString(), data);
         print(response.body);
-        if (response.statusCode == 200) {
+      //  if (response.statusCode == 200) {
           Map valueMap = jsonDecode(response.body);
           if (valueMap['code'] == 200) {
             print( " fn_Registration200 ::: ${valueMap['message']} ${valueMap['data']}");
@@ -235,18 +235,18 @@ Future<DelegateDataModel?> EditCustomer(BuildContext context,String mobile ,Stri
           }
           else {
             await AlertView(
-                context, "error", Translations.of(context)!.ErrorTitle,valueMap['data'].toString());
+                context, "error", Translations.of(context)!.ErrorTitle,valueMap['message'].toString());
             print( "fn_Registration400 ::: ${valueMap['message']} ${valueMap['data']}");
             return null;
           }
-        }
+       /* }
         else {
           await AlertView(
               context, "error", Translations.of(context)!.ErrorTitle,
               "error_statusCode ${response.statusCode} ${response.reasonPhrase}");
           print( "fn_LRegistrationstatusCode400 ::: ${response.statusCode} ");
           return null;
-        }
+        }*/
       }
       catch(e)
       {

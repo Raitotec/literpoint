@@ -87,7 +87,7 @@ Future<bool?> ConvertPointsFun(BuildContext context ) async {
         });
         final response = await Post_Data(ConvertPoints, data);
         print(response.body);
-        if (response.statusCode == 200) {
+      //  if (response.statusCode == 200) {
           Map valueMap = jsonDecode(response.body);
           if (valueMap['code'] == 200) {
             print( " fn_ConvertPoints200 ::: ${valueMap['message']} ${valueMap['data']}");
@@ -96,18 +96,18 @@ Future<bool?> ConvertPointsFun(BuildContext context ) async {
           }
           else {
             await AlertView(
-                context, "error", Translations.of(context)!.ErrorTitle,valueMap['data'].toString());
+                context, "error", Translations.of(context)!.ErrorTitle,valueMap['message'].toString());
             print( "fn_ConvertPoints400 ::: ${valueMap['message']} ${valueMap['data']}");
             return null;
           }
-        }
+       /* }
         else {
           await AlertView(
               context, "error", Translations.of(context)!.ErrorTitle,
               "error_statusCode ${response.statusCode} ${response.reasonPhrase}");
           print( "fn_ConvertPointsstatusCode400 ::: ${response.statusCode} ");
           return null;
-        }
+        }*/
       }
       catch(e)
       {
