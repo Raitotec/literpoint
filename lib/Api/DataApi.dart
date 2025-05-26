@@ -85,7 +85,7 @@ Future<MainModel?> AppMainPageFun(BuildContext context) async {
 }
 
 
-Future<AboutModel?> About_us(BuildContext context) async {
+Future<List<AboutModel>?> About_us(BuildContext context) async {
   try {
     bool InternetConntected = await hasNetwork();
     if (InternetConntected) {
@@ -102,8 +102,14 @@ Future<AboutModel?> About_us(BuildContext context) async {
           Map valueMap = jsonDecode(response.body);
           if (valueMap['code'] == 200) {
             print( " fn_About_us200 ::: ${valueMap['message']} ${valueMap['data']}");
-           // await AlertView(context, "success", Translations.of(context)!.Ok,Translations.of(context)!.success_msg);
-            return  valueMap['data'] != null ? new AboutModel.fromJson(valueMap['data']) : null;
+            List<AboutModel> obj= <AboutModel>[];
+            if (valueMap['data'] != null) {
+              valueMap['data'].forEach((v) {
+                obj!.add(new AboutModel.fromJson(v));
+              });
+            }
+
+            return obj;
           }
           else {
             await AlertView(
@@ -153,10 +159,13 @@ Future<bool?> Contact_us(BuildContext context,String mobile ,String first_name,S
       try {
         var lang= LanguageData.languageData;
         print(lang);
+
         var data = jsonEncode(<String, String>{
          // 'phone': mobile,
           "lang": lang,
-          "UserId":DelegateData.delegateData!.id.toString(),
+          "UserId":(DelegateData.delegateData!= null && DelegateData.delegateData!.id!= null&&
+              DelegateData.delegateData!.id != -1)?
+          DelegateData.delegateData!.id.toString():"",
          // "name":first_name,
           "Message":comment,
          // "contacttype":contacttype

@@ -119,13 +119,13 @@ class Translations {
   }
   String get ErrorTitle {
     return Intl.message(
-      'ErrorTitle',
+      'errorTitle',
       name: 'errorTitle',
     );
   }
   String get ErrorDes {
     return Intl.message(
-      'ErrorDes',
+      'errorDes',
       name: 'errorDes',
     );
   }
@@ -850,6 +850,11 @@ String get enter_amount {
     return Intl.message(
       'new_noData',
       name: 'new_noData',
+    );
+  }String get ScanQrcode {
+    return Intl.message(
+      'ScanQrcode',
+      name: 'ScanQrcode',
     );
   }
 

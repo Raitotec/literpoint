@@ -157,5 +157,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "try_again": MessageLookupByLibrary.simpleMessage("Try Again"),
     "edit_data": MessageLookupByLibrary.simpleMessage("ُEdit Data"),
     "new_noData":MessageLookupByLibrary.simpleMessage("Can't edit No new data"),
+    "ScanQrcode":MessageLookupByLibrary.simpleMessage("Scan Qr code"),
   };
 }

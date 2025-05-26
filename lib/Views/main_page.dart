@@ -62,7 +62,7 @@ class _MainScreenState extends State<MainScreen> {
             selectedIndicatorColor: Style.MainColor,
             indicatorColor: Colors.black26,
             indicatorPosition: IndicatorPosition.under,
-            autoPlay: true,
+            autoPlay: false,
            aspectRatio: 3,
           ),
           Row(
@@ -128,77 +128,25 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   ServicesRate() {
-    if (NewServicesData.serviceData != null && NewServicesData.serviceData!.length > 0) {
-      return Container(
-          padding: EdgeInsets.symmetric(horizontal: 2.0.w),
-          child: GridView.builder(
-              shrinkWrap: true, // Add this to prevent scrolling issues
-              physics: NeverScrollableScrollPhysics(), // Add this since we're inside SingleChildScrollView
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 2,
-                  crossAxisSpacing: 2.0.w,
-                  mainAxisSpacing: 1.0.h),
-              itemCount: NewServicesData.serviceData!.length,
-              itemBuilder: (BuildContext ctx, index) {
-                return InkWell(
-                    onTap: (){
-                      setState(() {
-                        NewServicesData.serviceData!.forEach((element) => element.selected = false);
-                        NewServicesData.serviceData![index].selected = true;
-                      });
-                      Navigator.pushNamed(context, ServicesReviewsRoute);
-                    },
-                    child: Container(
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            color: Style.WhiteColor,
-                            borderRadius: BorderRadius.circular(15.0),
-                            border: NewServicesData.serviceData![index].selected!
-                                ? Border.all(color: Style.MainColor)
-                                : Border.all(color: Style.LightGreyColor),
-                            boxShadow: [BoxShadow(
-                                color: Style.LightGreyColor.withOpacity(0.1),
-                                spreadRadius: 1,
-                                blurRadius: 5,
-                                offset: Offset(7, 7))]
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              NewServicesData.serviceData![index].name!,
-                              style: TextStyle(
-                                  color: Style.MainTextColor,
-                                  fontSize: 14.0.sp,
-                                  fontWeight: FontWeight.bold
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsets.all(2.0.w),
-                                child: Image.network(
-                                  NewServicesData.serviceData![index].img!,
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            )
-                          ],)
-                    ));
-              }));
-    } else {
-      return Center(
-        child: Text(
-          Translations.of(context)!.NoData,
+
+      return InkWell(child:  Container(
+        margin: EdgeInsets.only(left: 7.0.w,right: 7.0.w,top: 0,bottom: 2.0.h),
+        child:Row(children: [
+        Icon(Icons.qr_code_scanner_outlined,size: 3.0.h,color: Style.SecondryColor,),
+          SizedBox(width: 2.0.w,),
+          Expanded(child:  Text(
+          Translations.of(context)!.ScanQrcode,
           style: TextStyle(
-              color: Colors.red,
+              color: Style.MainTextColor,
               fontSize: 14.0.sp,
               fontWeight: FontWeight.bold
           ),
-        ),
+        )),
+      ])),
+        onTap: (){
+        Navigator.pushNamed(context, ServicesReviewsRoute);
+        },
       );
-    }
   }
 
   Offer()

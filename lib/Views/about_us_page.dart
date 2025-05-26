@@ -27,7 +27,7 @@ class AboutUsPage extends StatefulWidget {
 class _AboutUsPageState extends State<AboutUsPage> {
 
   bool _isLoading = false;
-  AboutModel? data;
+  List<AboutModel>? data;
   List<DataModel> branches=<DataModel>[];
 
   @override
@@ -63,49 +63,29 @@ class _AboutUsPageState extends State<AboutUsPage> {
           SizedBox(height: 3.0.h,),
           Image(image: AssetImage('lib/assets/logo.png'), width: 60.0.w, height: 17.0.h,),
          // Text(Translations.of(context)!.New_user,style: Style.Secondry16Bold,),
-          if(data != null)
+          if(data != null &&data!.length>0)
          Container(
             margin: EdgeInsets.symmetric(horizontal: 4.0.w, vertical: 3.0.h),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  title(Translations.of(context)!.our_slogan),
-                  des(LanguageData.languageData=="ar"?data!.sloganAR!:data!.sloganEN!),
-                  SizedBox(height: 2.0.h,),
-                  title(Translations.of(context)!.our_mission),
-                  des(LanguageData.languageData=="ar"?data!.ourMessageAR!:data!.ourMessageEN!),
-                  SizedBox(height: 2.0.h,),
-                  title(Translations.of(context)!.our_vision),
-                  des(LanguageData.languageData=="ar"?data!.ourVisionAR!:data!.ourVisionEN!),
-                  SizedBox(height: 2.0.h,),
-                  title(Translations.of(context)!.our_values),
-                  if((LanguageData.languageData=="ar"&& data!.ourValuesAR!=null && data!.ourValuesAR!.length>0)||
-                      (LanguageData.languageData=="en"&& data!.ourValuesEN!=null && data!.ourValuesEN!.length>0))
-                  ListView.builder(
+                   ListView.builder(
                     shrinkWrap:true,// -> Add this here
                     physics:NeverScrollableScrollPhysics(),// -> And this one
-                    itemBuilder: (context, index) =>   Container(
+                     itemCount:data!.length,
+                     itemBuilder: (context, index) =>
+                        Container(
                         margin: EdgeInsets.symmetric(vertical: 0.5.h,horizontal: 4.0.w),
-                        child:  Row(
-                          mainAxisAlignment:MainAxisAlignment.start ,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        child:  Column(
                           children: [
-                            Container(decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Style.SecondryColor
-                            ),
-                              height: 3.0.h,
-                              width: 2.0.w,
-                              margin: EdgeInsets.only(top: 0.2.h),
-                            ),
-                            SizedBox(width: 2.0.w,),
-                            Expanded(child: Text( LanguageData.languageData=="ar"? data!.ourValuesAR![index]:data!.ourValuesEN![index], style: Style.MainText14,
-                            )),
-                          ],)),
-                    itemCount:LanguageData.languageData=="ar"? data!.ourValuesAR!.length:data!.ourValuesEN!.length,
-                  ),
-                  SizedBox(height: 2.0.h,),
+                            SizedBox(height: 1.0.h,),
+                            title(data![index].name!),
+                            des(data![index].description!),
+                          ],
+                        )),
+                 ),
+
 
           ]))
 

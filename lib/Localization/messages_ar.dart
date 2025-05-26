@@ -158,5 +158,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "try_again": MessageLookupByLibrary.simpleMessage(" حاول مره اخري"),
     "edit_data": MessageLookupByLibrary.simpleMessage("تعديل بيانات"),
     "new_noData":MessageLookupByLibrary.simpleMessage("لا يمكن التعديل لا يوجد بيانات جديدة"),
+    "ScanQrcode":MessageLookupByLibrary.simpleMessage("امسح الرمز"),
   };
 }

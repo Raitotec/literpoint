@@ -328,7 +328,7 @@ class _Connect_usPageState extends State<Connect_usPage> {
       SelectData=data[0];
     });
     hideLoading();*/
-    showLoading();
+ /*   showLoading();
 
     if (DelegateData.delegateData != null &&
         DelegateData.delegateData!.id! > 0) {
@@ -338,7 +338,7 @@ class _Connect_usPageState extends State<Connect_usPage> {
 
       await AlertView2(context);
     }
-    hideLoading();
+    hideLoading();*/
   }
 
   Future<void> startFun() async {
