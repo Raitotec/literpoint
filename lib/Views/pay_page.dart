@@ -178,7 +178,7 @@ class _PayPageState extends State<PayPage> {
                 Expanded(child: Center(child: Text(
                   Translations.of(context)!.Total,
                   style: TextStyle(
-                      color: Style.MainTextColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold),))),
+                      color: Style.MainTextColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold),))),
                 VerticalDivider(
                   color: Style.LightGreyColor, thickness: 2, width: 0,),
                 SizedBox(height: 7.0.h, width: 5.0.w,),
@@ -189,7 +189,7 @@ class _PayPageState extends State<PayPage> {
                     children: [
                       TextSpan(text: "  " + Translations.of(context)!.SAR,
                         style: TextStyle(
-                            color: Style.MainTextColor, fontSize: 14.0.sp, ),)
+                            color: Style.MainTextColor, fontSize: 16.0.sp, ),)
                     ])),)),
               ],
             ),)
@@ -210,17 +210,17 @@ class _PayPageState extends State<PayPage> {
                       controller: addressController,
                       cursorColor: Style.SecondryColor,
                       style: TextStyle(
-                          fontSize: 14.0.sp, color: Style.MainTextColor),
+                          fontSize: 16.0.sp, color: Style.MainTextColor),
                       decoration: InputDecoration(
                         border: InputBorder.none,
                           prefixIcon: Icon(Icons.home_outlined, size: Style.SizeIcon,
                             color: Style.SecondryColor,),
                           hintText: Translations.of(context)!.address,
-                          // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                          // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                           //  labelText: Translations.of(context)!.Code,
-                          hintStyle: TextStyle(fontSize: 12.0.sp,
+                          hintStyle: TextStyle(fontSize: 16.0.sp,
                             color: Style.GreyColor,),
-                          errorStyle: TextStyle(fontSize: 12.0.sp,
+                          errorStyle: TextStyle(fontSize: 16.0.sp,
                               color: Colors.red)
                       ),
                       keyboardType: TextInputType.name,
@@ -284,7 +284,7 @@ class _PayPageState extends State<PayPage> {
                 Expanded(child: Text(
                   data.name!,
                   style: TextStyle(
-                      color: Style.MainTextColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold),)),
+                      color: Style.MainTextColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold),)),
                 SizedBox(height: 7.0.h, width: 5.0.w,),
                 if(data.icon1 != null)
                   Image(image: AssetImage('lib/assets/' + data.icon1! + '.png'),

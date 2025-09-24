@@ -29,9 +29,9 @@ class Style {
   static double FontSize20 = 20.0.sp;
   static double FontSize18 = 18.0.sp;
   static double FontSize16 = 16.0.sp;
-  static double FontSize14 = 14.0.sp;
-  static double FontSize12 = 12.0.sp;
-  static double FontSize10 = 10.0.sp;
+  static double FontSize14 = 16.0.sp;
+  static double FontSize12 = 16.0.sp;
+  static double FontSize10 = 16.0.sp;
 
   //textStyle
   static TextStyle Header1 = TextStyle(
@@ -43,11 +43,11 @@ class Style {
   static TextStyle Header4 = TextStyle(
       color: WhiteColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold);
   static TextStyle Header5 = TextStyle(
-      color: WhiteColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold);
+      color: WhiteColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold);
   static TextStyle Header6 = TextStyle(
-      color: WhiteColor, fontSize: 12.0.sp, fontWeight: FontWeight.bold);
+      color: WhiteColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold);
   static TextStyle Header7 = TextStyle(
-      color: WhiteColor, fontSize: 10.0.sp, fontWeight: FontWeight.bold);
+      color: WhiteColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold);
   static TextStyle MainText25Bold = TextStyle(
       color: MainTextColor, fontSize: 25.0.sp, fontWeight: FontWeight.bold);
   static TextStyle MainText20Bold = TextStyle(
@@ -57,7 +57,7 @@ class Style {
   static TextStyle MainText16Bold = TextStyle(
       color: MainTextColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold);
   static TextStyle MainText14Bold = TextStyle(
-      color: MainTextColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold);
+      color: MainTextColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold);
   static TextStyle MainText25 = TextStyle(
       color: MainTextColor, fontSize: 25.0.sp);
   static TextStyle MainText20 = TextStyle(
@@ -67,11 +67,11 @@ class Style {
   static TextStyle MainText16 = TextStyle(
       color: MainTextColor, fontSize: 16.0.sp);
   static TextStyle MainText14 = TextStyle(
-      color: MainTextColor, fontSize: 14.0.sp);
+      color: MainTextColor, fontSize: 16.0.sp);
   static TextStyle MainText12 = TextStyle(
-      color: MainTextColor, fontSize: 12.0.sp);
+      color: MainTextColor, fontSize: 16.0.sp);
   static TextStyle MainText10 = TextStyle(
-      color: MainTextColor, fontSize: 10.0.sp);
+      color: MainTextColor, fontSize: 16.0.sp);
   static TextStyle MainText9 = TextStyle(
       color: MainTextColor, fontSize: 9.0.sp);
   static TextStyle MainText8 = TextStyle(
@@ -85,18 +85,18 @@ class Style {
   static TextStyle SecondryText16 = TextStyle(
       color: SecondryColor, fontSize: 16.0.sp);
   static TextStyle SecondryText14 = TextStyle(
-      color: SecondryColor, fontSize: 14.0.sp);
+      color: SecondryColor, fontSize: 16.0.sp);
   static TextStyle SecondryText12 = TextStyle(
-      color: SecondryColor, fontSize: 12.0.sp);
+      color: SecondryColor, fontSize: 16.0.sp);
   static TextStyle SecondryText10 = TextStyle(
-      color: SecondryColor, fontSize: 10.0.sp);
+      color: SecondryColor, fontSize: 16.0.sp);
   static TextStyle GreyText25 = TextStyle(color: GreyColor, fontSize: 25.0.sp);
   static TextStyle GreyText20 = TextStyle(color: GreyColor, fontSize: 20.0.sp);
   static TextStyle GreyText18 = TextStyle(color: GreyColor, fontSize: 18.0.sp);
   static TextStyle GreyText16 = TextStyle(color: GreyColor, fontSize: 16.0.sp);
-  static TextStyle GreyText14 = TextStyle(color: GreyColor, fontSize: 14.0.sp);
-  static TextStyle GreyText12 = TextStyle(color: GreyColor, fontSize: 12.0.sp);
-  static TextStyle GreyText10 = TextStyle(color: GreyColor, fontSize: 10.0.sp);
+  static TextStyle GreyText14 = TextStyle(color: GreyColor, fontSize: 16.0.sp);
+  static TextStyle GreyText12 = TextStyle(color: GreyColor, fontSize: 16.0.sp);
+  static TextStyle GreyText10 = TextStyle(color: GreyColor, fontSize: 16.0.sp);
   static TextStyle Secondry25Bold = TextStyle(
       color: SecondryColor, fontSize: 25.0.sp, fontWeight: FontWeight.bold);
   static TextStyle Secondry20Bold = TextStyle(
@@ -106,9 +106,9 @@ class Style {
   static TextStyle Secondry16Bold = TextStyle(
       color: SecondryColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold);
   static TextStyle Secondry14Bold = TextStyle(
-      color: SecondryColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold);
+      color: SecondryColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold);
   static TextStyle Secondry12Bold = TextStyle(
-      color: SecondryColor, fontSize: 12.0.sp, fontWeight: FontWeight.bold);
+      color: SecondryColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold);
   static TextStyle BlackText25Bold = TextStyle(
       color: Colors.black, fontSize: 25.0.sp, fontWeight: FontWeight.bold);
   static TextStyle BlackText20Bold = TextStyle(
@@ -118,9 +118,9 @@ class Style {
   static TextStyle BlackText16Bold = TextStyle(
       color: Colors.black, fontSize: 16.0.sp, fontWeight: FontWeight.bold);
   static TextStyle BlackText14Bold = TextStyle(
-      color: Colors.black, fontSize: 14.0.sp, fontWeight: FontWeight.bold);
+      color: Colors.black, fontSize: 16.0.sp, fontWeight: FontWeight.bold);
   static TextStyle BlackText12Bold = TextStyle(
-      color: Colors.black, fontSize: 12.0.sp, fontWeight: FontWeight.bold);
+      color: Colors.black, fontSize: 16.0.sp, fontWeight: FontWeight.bold);
   static double SizeIcon = 3.0.h;
   static double SizeIconPrint = 5.0.h;
   static double SizeIconAppBar = 4.0.h;

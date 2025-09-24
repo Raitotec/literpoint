@@ -86,7 +86,7 @@ class _StationMaintenancePageState extends State<StationMaintenancePage> {
                 child: Text(
                   Translations.of(context)!.SelectServices,
                   style: TextStyle(
-                      color: Style.MainTextColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold),),),
+                      color: Style.MainTextColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold),),),
               Container(margin: EdgeInsets.symmetric(
                   vertical: 0.0.h, horizontal: 5.0.w), child:
               PopupMenuButton(
@@ -139,17 +139,17 @@ class _StationMaintenancePageState extends State<StationMaintenancePage> {
                     controller: nameController,
                     cursorColor: Style.SecondryColor,
                     style: TextStyle(
-                        fontSize: 14.0.sp, color: Style.MainTextColor),
+                        fontSize: 16.0.sp, color: Style.MainTextColor),
                     validator: (value) {},
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.person, size: 3.0.h, color: Style.SecondryColor,),
                         hintText: Translations.of(context)!.username,
-                        // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                        // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                         //  labelText: Translations.of(context)!.Code,
-                        hintStyle: TextStyle(fontSize: 12.0.sp,
+                        hintStyle: TextStyle(fontSize: 16.0.sp,
                           color: Style.GreyColor,),
-                        errorStyle: TextStyle(fontSize: 12.0.sp,
+                        errorStyle: TextStyle(fontSize: 16.0.sp,
                             color: Colors.red)
                     ),
                     keyboardType: TextInputType.text,
@@ -166,17 +166,17 @@ class _StationMaintenancePageState extends State<StationMaintenancePage> {
                     controller: phoneController,
                     cursorColor: Style.SecondryColor,
                     style: TextStyle(
-                        fontSize: 14.0.sp, color: Style.MainTextColor),
+                        fontSize: 16.0.sp, color: Style.MainTextColor),
                     validator: (value) {},
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.phone_android, size: 3.0.h,color: Style.SecondryColor,),
                         hintText: Translations.of(context)!.Phone_number,
-                        // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                        // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                         //  labelText: Translations.of(context)!.Code,
-                        hintStyle: TextStyle(fontSize: 12.0.sp,
+                        hintStyle: TextStyle(fontSize: 16.0.sp,
                           color: Style.GreyColor,),
-                        errorStyle: TextStyle(fontSize: 12.0.sp,
+                        errorStyle: TextStyle(fontSize: 16.0.sp,
                             color: Colors.red)
                     ),
                     keyboardType: TextInputType.number,
@@ -195,16 +195,16 @@ class _StationMaintenancePageState extends State<StationMaintenancePage> {
                     controller: SelectStation,
                     cursorColor: Style.SecondryColor,
                     style: TextStyle(
-                        fontSize: 14.0.sp, color: Style.MainTextColor),
+                        fontSize: 16.0.sp, color: Style.MainTextColor),
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.local_gas_station, size: 3.0.h,color: Style.SecondryColor,),
                         hintText: Translations.of(context)!.Station_name,
-                        // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                        // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                         //  labelText: Translations.of(context)!.Code,
-                        hintStyle: TextStyle(fontSize: 12.0.sp,
+                        hintStyle: TextStyle(fontSize: 16.0.sp,
                           color: Style.GreyColor,),
-                        errorStyle: TextStyle(fontSize: 12.0.sp,
+                        errorStyle: TextStyle(fontSize: 16.0.sp,
                             color: Colors.red)
                     ),
                     keyboardType: TextInputType.text,
@@ -221,17 +221,17 @@ class _StationMaintenancePageState extends State<StationMaintenancePage> {
                     controller: address,
                     cursorColor: Style.SecondryColor,
                     style: TextStyle(
-                        fontSize: 14.0.sp, color: Style.MainTextColor),
+                        fontSize: 16.0.sp, color: Style.MainTextColor),
                     validator: (value) {},
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.location_on, size:3.0.h,color: Style.SecondryColor,),
                         hintText: Translations.of(context)!.Station_address,
-                        // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                        // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                         //  labelText: Translations.of(context)!.Code,
-                        hintStyle: TextStyle(fontSize: 12.0.sp,
+                        hintStyle: TextStyle(fontSize: 16.0.sp,
                           color: Style.GreyColor,),
-                        errorStyle: TextStyle(fontSize: 12.0.sp,
+                        errorStyle: TextStyle(fontSize: 16.0.sp,
                             color: Colors.red)
                     ),
                     keyboardType: TextInputType.text,
@@ -254,15 +254,15 @@ class _StationMaintenancePageState extends State<StationMaintenancePage> {
                         controller: commentController,
                         cursorColor: Style.SecondryColor,
                         style: TextStyle(
-                            fontSize: 14.0.sp, color: Style.MainTextColor),
+                            fontSize: 16.0.sp, color: Style.MainTextColor),
                         decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: Translations.of(context)!.comment,
-                            // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                            // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                             //  labelText: Translations.of(context)!.Code,
-                            hintStyle: TextStyle(fontSize: 12.0.sp,
+                            hintStyle: TextStyle(fontSize: 16.0.sp,
                               color: Style.GreyColor,),
-                            errorStyle: TextStyle(fontSize: 14.0.sp,
+                            errorStyle: TextStyle(fontSize: 16.0.sp,
                                 color: Colors.red)
                         ),
                         keyboardType: TextInputType.text,

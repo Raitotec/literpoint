@@ -78,7 +78,7 @@ class _RatePageState extends State<RatePage> {
             )),
             Container(child: Text(
               Translations.of(context)!.pleaseRate,
-              style: TextStyle(color: Style.MainTextColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold)),
+              style: TextStyle(color: Style.MainTextColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold)),
               margin: EdgeInsets.symmetric(
                   vertical: 1.0.h, horizontal: 5.0.w),),
             Center(child: RatingBar.builder(
@@ -103,7 +103,7 @@ class _RatePageState extends State<RatePage> {
             )),
             Container(child: Text(
               Translations.of(context)!.rateQ, style: TextStyle(
-                color: Style.MainTextColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold)),
+                color: Style.MainTextColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold)),
               margin: EdgeInsets.symmetric(
                   vertical: 1.0.h, horizontal: 5.0.w),),
             Container(
@@ -120,15 +120,15 @@ class _RatePageState extends State<RatePage> {
                       controller: nameController,
                       cursorColor: Style.SecondryColor,
                       style: TextStyle(
-                          fontSize: 14.0.sp, color: Style.MainTextColor),
+                          fontSize: 16.0.sp, color: Style.MainTextColor),
                       decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: Translations.of(context)!.rateQ,
-                          // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                          // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                           //  labelText: Translations.of(context)!.Code,
-                          hintStyle: TextStyle(fontSize: 12.0.sp,
+                          hintStyle: TextStyle(fontSize: 16.0.sp,
                             color: Style.GreyColor,),
-                          errorStyle: TextStyle(fontSize: 14.0.sp,
+                          errorStyle: TextStyle(fontSize: 16.0.sp,
                               color: Colors.red)
                       ),
                       keyboardType: TextInputType.text,

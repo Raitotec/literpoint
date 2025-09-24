@@ -74,7 +74,7 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
          controller: widget.controller,
          cursorErrorColor: Style.SecondryColor,
          cursorColor: Style.SecondryColor,
-         style: TextStyle(color: Style.MainTextColor,fontSize: 12.0.sp,fontWeight: FontWeight.bold),
+         style: TextStyle(color: Style.MainTextColor,fontSize: 16.0.sp,fontWeight: FontWeight.bold),
          obscureText: widget.password??false,
          keyboardType: widget.keyboardType??TextInputType.emailAddress,
          decoration: InputDecoration(
@@ -84,10 +84,10 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
            // icon: Icon(Icons.home_work_outlined, size: 3.0.h,color: Style.SecondryColor,),
            //  border: InputBorder.none,
              labelText: widget.label,
-             labelStyle:TextStyle(color: Style.MainTextColor,fontSize: 12.0.sp,fontWeight: FontWeight.bold),
-             hintStyle: TextStyle(color: Style.MediumGreyColor,fontSize: 12.0.sp,),
+             labelStyle:TextStyle(color: Style.MainTextColor,fontSize: 16.0.sp,fontWeight: FontWeight.bold),
+             hintStyle: TextStyle(color: Style.MediumGreyColor,fontSize: 16.0.sp,),
              hintText: widget.hint??"",
-            errorStyle: TextStyle(color: Style.MainTextColor,fontSize: 12.0.sp,).copyWith(color: Colors.red),
+            errorStyle: TextStyle(color: Style.MainTextColor,fontSize: 16.0.sp,).copyWith(color: Colors.red),
            border: OutlineInputBorder(),
            focusedBorder: OutlineInputBorder(
              borderSide: BorderSide(color: Style.BorderTextFieldFocusedColor, width: 1.0), // Border when focused

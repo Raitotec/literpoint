@@ -92,17 +92,17 @@ class _StationTransportationPageState extends State<StationTransportationPage> {
                     controller: nameController,
                     cursorColor: Style.SecondryColor,
                     style: TextStyle(
-                        fontSize: 14.0.sp, color: Style.MainTextColor),
+                        fontSize: 16.0.sp, color: Style.MainTextColor),
                     validator: (value) {},
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.person, size: 3.0.h, color: Style.SecondryColor,),
                         hintText: Translations.of(context)!.username,
-                        // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                        // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                         //  labelText: Translations.of(context)!.Code,
-                        hintStyle: TextStyle(fontSize: 12.0.sp,
+                        hintStyle: TextStyle(fontSize: 16.0.sp,
                           color: Style.GreyColor,),
-                        errorStyle: TextStyle(fontSize: 12.0.sp,
+                        errorStyle: TextStyle(fontSize: 16.0.sp,
                             color: Colors.red)
                     ),
                     keyboardType: TextInputType.text,
@@ -119,17 +119,17 @@ class _StationTransportationPageState extends State<StationTransportationPage> {
                     controller: phoneController,
                     cursorColor: Style.SecondryColor,
                     style: TextStyle(
-                        fontSize: 14.0.sp, color: Style.MainTextColor),
+                        fontSize: 16.0.sp, color: Style.MainTextColor),
                     validator: (value) {},
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.phone_android, size: 3.0.h,color: Style.SecondryColor,),
                         hintText: Translations.of(context)!.Phone_number,
-                        // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                        // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                         //  labelText: Translations.of(context)!.Code,
-                        hintStyle: TextStyle(fontSize: 12.0.sp,
+                        hintStyle: TextStyle(fontSize: 16.0.sp,
                           color: Style.GreyColor,),
-                        errorStyle: TextStyle(fontSize: 12.0.sp,
+                        errorStyle: TextStyle(fontSize: 16.0.sp,
                             color: Colors.red)
                     ),
                     keyboardType: TextInputType.number,
@@ -147,16 +147,16 @@ class _StationTransportationPageState extends State<StationTransportationPage> {
                     controller: SelectStation,
                     cursorColor: Style.SecondryColor,
                     style: TextStyle(
-                        fontSize: 14.0.sp, color: Style.MainTextColor),
+                        fontSize: 16.0.sp, color: Style.MainTextColor),
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.local_gas_station, size: 3.0.h,color: Style.SecondryColor,),
                         hintText: Translations.of(context)!.Station_name,
-                        // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                        // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                         //  labelText: Translations.of(context)!.Code,
-                        hintStyle: TextStyle(fontSize: 12.0.sp,
+                        hintStyle: TextStyle(fontSize: 16.0.sp,
                           color: Style.GreyColor,),
-                        errorStyle: TextStyle(fontSize: 12.0.sp,
+                        errorStyle: TextStyle(fontSize: 16.0.sp,
                             color: Colors.red)
                     ),
                     keyboardType: TextInputType.text,
@@ -177,17 +177,17 @@ class _StationTransportationPageState extends State<StationTransportationPage> {
                     controller: address,
                     cursorColor: Style.SecondryColor,
                     style: TextStyle(
-                        fontSize: 14.0.sp, color: Style.MainTextColor),
+                        fontSize: 16.0.sp, color: Style.MainTextColor),
                     validator: (value) {},
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.location_on, size:3.0.h,color: Style.SecondryColor,),
                         hintText: Translations.of(context)!.Station_address,
-                        // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                        // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                         //  labelText: Translations.of(context)!.Code,
-                        hintStyle: TextStyle(fontSize: 12.0.sp,
+                        hintStyle: TextStyle(fontSize: 16.0.sp,
                           color: Style.GreyColor,),
-                        errorStyle: TextStyle(fontSize: 12.0.sp,
+                        errorStyle: TextStyle(fontSize: 16.0.sp,
                             color: Colors.red)
                     ),
                     keyboardType: TextInputType.text,
@@ -200,7 +200,7 @@ class _StationTransportationPageState extends State<StationTransportationPage> {
                     padding: EdgeInsets.fromLTRB(3.0.w, 0.5.h, 3.0.w, 0.5.h),
                     margin: EdgeInsets.fromLTRB(0, 2.0.h, 0, 0),
                     decoration: Style.ButtonDecoration,
-                    child: Text(Translations.of(context)!.Station_location,style: TextStyle(color: Style.WhiteColor, fontSize: 10.0.sp),),
+                    child: Text(Translations.of(context)!.Station_location,style: TextStyle(color: Style.WhiteColor, fontSize: 16.0.sp),),
                   ), onTap: () async {
                     Navigator.pushNamed(context, "MapLocationRoute").then((onValue) {
                       _refreshData();
@@ -219,17 +219,17 @@ class _StationTransportationPageState extends State<StationTransportationPage> {
                     controller: commentController,
                     cursorColor: Style.SecondryColor,
                     style: TextStyle(
-                        fontSize: 14.0.sp, color: Style.MainTextColor),
+                        fontSize: 16.0.sp, color: Style.MainTextColor),
                     validator: (value) {},
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.sticky_note_2, size:3.0.h,color: Style.SecondryColor,),
                         hintText: Translations.of(context)!.comment,
-                        // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                        // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                         //  labelText: Translations.of(context)!.Code,
-                        hintStyle: TextStyle(fontSize: 12.0.sp,
+                        hintStyle: TextStyle(fontSize: 16.0.sp,
                           color: Style.GreyColor,),
-                        errorStyle: TextStyle(fontSize: 12.0.sp,
+                        errorStyle: TextStyle(fontSize: 16.0.sp,
                             color: Colors.red)
                     ),
                     keyboardType: TextInputType.text,
@@ -370,7 +370,7 @@ class _StationTransportationPageState extends State<StationTransportationPage> {
                           padding: EdgeInsets.fromLTRB(3.0.w, 0.5.h, 3.0.w, 0.5.h),
                           margin: EdgeInsets.fromLTRB(1.0.w, 0.0.h, 1.0.w, 0),
                           decoration: Style.ButtonDecoration,
-                          child: Text(Translations.of(context)!.AddService,style: TextStyle(color: Style.WhiteColor, fontSize: 10.0.sp),),
+                          child: Text(Translations.of(context)!.AddService,style: TextStyle(color: Style.WhiteColor, fontSize: 16.0.sp),),
                         ))),
 
                   ],

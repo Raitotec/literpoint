@@ -489,7 +489,7 @@ class _MapScreenState extends State<MapLocationStationScreen> {
 
                                                 Text(selectedPin.name! + " - " +
                                                     selectedPin.address! ,
-                                                  style: TextStyle(color: Style.GreyColor, fontSize: 12.0.sp),),
+                                                  style: TextStyle(color: Style.GreyColor, fontSize: 16.0.sp),),
                                                 SizedBox(height: 1.5.h,)
                                               ],
                                             ))
@@ -511,7 +511,7 @@ class _MapScreenState extends State<MapLocationStationScreen> {
                                               crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
                                                 Text(selectedPin.phone! ,
-                                                  style: TextStyle(color: Style.GreyColor, fontSize: 12.0.sp),),
+                                                  style: TextStyle(color: Style.GreyColor, fontSize: 16.0.sp),),
                                                 SizedBox(height: 1.5.h,)
                                               ],
                                             ) )
@@ -534,7 +534,7 @@ class _MapScreenState extends State<MapLocationStationScreen> {
                                               crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
                                                 Text(selectedPin.mail!,
-                                                  style: TextStyle(color: Style.GreyColor, fontSize: 12.0.sp),),
+                                                  style: TextStyle(color: Style.GreyColor, fontSize: 16.0.sp),),
                                                 SizedBox(height: 1.0.h,)
                                               ],
                                             )

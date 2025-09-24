@@ -138,7 +138,7 @@ class _MainScreenState extends State<MainScreen> {
           Translations.of(context)!.ScanQrcode,
           style: TextStyle(
               color: Style.MainTextColor,
-              fontSize: 14.0.sp,
+              fontSize: 16.0.sp,
               fontWeight: FontWeight.bold
           ),
         )),
@@ -209,7 +209,7 @@ class _MainScreenState extends State<MainScreen> {
           Translations.of(context)!.NoData,
           style: TextStyle(
               color: Colors.red,
-              fontSize: 14.0.sp,
+              fontSize: 16.0.sp,
               fontWeight: FontWeight.bold
           ),
         ),

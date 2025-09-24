@@ -184,7 +184,7 @@ class _MapLocationScreenState extends State<MapLocationScreen> {
                                     padding: EdgeInsets.fromLTRB(3.0.w, 0.5.h, 3.0.w, 0.5.h),
                                      margin: EdgeInsets.fromLTRB(15.0.w, 1.0.h, 15.0.w, 0.0.h),
                                     decoration: Style.ButtonDecoration,
-                                    child: Center(child:  Text(Translations.of(context)!.accept,style: TextStyle(color: Style.WhiteColor, fontSize: 12.0.sp),)),
+                                    child: Center(child:  Text(Translations.of(context)!.accept,style: TextStyle(color: Style.WhiteColor, fontSize: 16.0.sp),)),
                                   ),
                                       onTap: () async {
                                        Navigator.pop(context);
@@ -198,7 +198,7 @@ class _MapLocationScreenState extends State<MapLocationScreen> {
                                         begin: Alignment.topRight,
                                         end: Alignment.bottomLeft,
                                         colors: [Colors.red, Colors.deepOrange]),),
-                                    child:Center(child:  Text(Translations.of(context)!.cancel,style: TextStyle(color: Style.WhiteColor, fontSize: 12.0.sp),)),
+                                    child:Center(child:  Text(Translations.of(context)!.cancel,style: TextStyle(color: Style.WhiteColor, fontSize: 16.0.sp),)),
                                   ),
                                       onTap: () async {})),*/
                                 ],

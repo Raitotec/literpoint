@@ -76,7 +76,7 @@ class _startPageState extends State<startPage> {
                       height: 5.0.h,),
                     SizedBox(width: 3.0.w,),
                     Text("+966", style: TextStyle(
-                        fontSize: 12.0.sp, color: Style.GreyColor),),
+                        fontSize: 16.0.sp, color: Style.GreyColor),),
                     SizedBox(width: 1.0.w,),
                     Expanded(child: Theme(
                       data: Theme.of(context).copyWith(primaryColor: Style
@@ -85,14 +85,14 @@ class _startPageState extends State<startPage> {
                           controller: mobileController,
                           cursorColor: Style.SecondryColor,
                           style: TextStyle(
-                              fontSize: 14.0.sp, color: Style.MainTextColor),
+                              fontSize: 16.0.sp, color: Style.MainTextColor),
                           decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: Translations.of(context)!.Phone_number + " "+Translations.of(context)!.phone_number_ex,
-                              //  labelStyle: TextStyle(fontSize: 14.0.sp, color: Style.GreyColor),
-                              hintStyle: TextStyle(fontSize: 12.0.sp,
+                              //  labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
+                              hintStyle: TextStyle(fontSize: 16.0.sp,
                                 color: Style.GreyColor,),
-                              errorStyle: TextStyle(fontSize: 14.0.sp,
+                              errorStyle: TextStyle(fontSize: 16.0.sp,
                                   color: Colors.red)
                           ),
                           keyboardType: TextInputType.phone,
@@ -116,7 +116,7 @@ class _startPageState extends State<startPage> {
               child:  Text(
                     Translations.of(context)!.login,
                     style: TextStyle(color: Colors.white,
-                        fontSize: 15.0.sp),
+                        fontSize: 17.0.sp),
 
                     textAlign: TextAlign.center,
 

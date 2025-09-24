@@ -49,27 +49,27 @@ class _HomePageState extends State<HomePage> {
         items: [
           CurvedNavigationBarItem(
             child: Icon(Icons.home_outlined,color: Style.WhiteColor,),
-            labelStyle: TextStyle(color: Colors.white, fontSize: 10.0.sp, fontWeight: FontWeight.bold),
+            labelStyle: TextStyle(color: Colors.white, fontSize: 16.0.sp, fontWeight: FontWeight.bold),
             label: Translations.of(context)!.Home_page,
           ),
           /*CurvedNavigationBarItem(
             child: Icon(Icons.shopping_bag_outlined,color: Style.WhiteColor,),
-            labelStyle: TextStyle(color: Colors.white, fontSize: 10.0.sp, fontWeight: FontWeight.bold),
+            labelStyle: TextStyle(color: Colors.white, fontSize: 16.0.sp, fontWeight: FontWeight.bold),
             label: Translations.of(context)!.Requests,
           ),*/
           CurvedNavigationBarItem(
             child: Icon(Icons.location_on_outlined,color: Style.WhiteColor,),
-            labelStyle: TextStyle(color: Colors.white, fontSize: 10.0.sp, fontWeight: FontWeight.bold),
+            labelStyle: TextStyle(color: Colors.white, fontSize: 16.0.sp, fontWeight: FontWeight.bold),
             label: Translations.of(context)!.Station_locations,
           ),
          /* CurvedNavigationBarItem(
             child: Icon(Icons.build_outlined ,color: Style.WhiteColor,),
-            labelStyle: TextStyle(color: Colors.white, fontSize: 10.0.sp, fontWeight: FontWeight.bold),
+            labelStyle: TextStyle(color: Colors.white, fontSize: 16.0.sp, fontWeight: FontWeight.bold),
             label: Translations.of(context)!.Station_maintenance,
           ),*/
           CurvedNavigationBarItem(
             child: Icon(Icons.settings ,color: Style.WhiteColor,),
-            labelStyle: TextStyle(color: Colors.white, fontSize: 10.0.sp, fontWeight: FontWeight.bold),
+            labelStyle: TextStyle(color: Colors.white, fontSize: 16.0.sp, fontWeight: FontWeight.bold),
             label: Translations.of(context)!.Services,
           ),
         ],

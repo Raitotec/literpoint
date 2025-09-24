@@ -54,7 +54,7 @@ class _ServicesDetailsPageState extends State<ServicesDetailsPage> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(child: Text(widget.obj.where((element) => element.selected==true).first.name!, style: TextStyle(
-              color: Style.MainTextColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold),),
+              color: Style.MainTextColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold),),
             decoration: Style.SecondryColorDecoration,
             margin: EdgeInsets.fromLTRB(3.0.w, 3.0.h, 3.0.w, 0.0.h),
             padding: EdgeInsets.fromLTRB(10.0.w, 0.5.h, 10.0.w, 0.5.h),
@@ -83,7 +83,7 @@ class _ServicesDetailsPageState extends State<ServicesDetailsPage> {
     {
       return  Center(child: Text(Translations.of(context)!.NoData,
         style: TextStyle(
-            color: Colors.red, fontSize: 14.0.sp, fontWeight: FontWeight.bold),));
+            color: Colors.red, fontSize: 16.0.sp, fontWeight: FontWeight.bold),));
     }
   }
   _tile( ServicesDetailsModel data, int index ) {

@@ -257,7 +257,7 @@ class _MapScreenState extends State<MapScreen> {
 
                                           Text(selectedPin.name! + " - " +
                                               selectedPin.address! ,
-                                            style: TextStyle(color: Style.GreyColor, fontSize: 12.0.sp),),
+                                            style: TextStyle(color: Style.GreyColor, fontSize: 16.0.sp),),
                                           SizedBox(height: 1.5.h,)
                                         ],
                                       ))
@@ -279,7 +279,7 @@ class _MapScreenState extends State<MapScreen> {
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(selectedPin.phone! ,
-                                            style: TextStyle(color: Style.GreyColor, fontSize: 12.0.sp),),
+                                            style: TextStyle(color: Style.GreyColor, fontSize: 16.0.sp),),
                                           SizedBox(height: 1.5.h,)
                                         ],
                                       ) )
@@ -302,7 +302,7 @@ class _MapScreenState extends State<MapScreen> {
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
                                               Text(selectedPin.mail!,
-                                                style: TextStyle(color: Style.GreyColor, fontSize: 12.0.sp),),
+                                                style: TextStyle(color: Style.GreyColor, fontSize: 16.0.sp),),
                                               SizedBox(height: 1.0.h,)
                                             ],
                                           )
@@ -368,7 +368,7 @@ class _MapScreenState extends State<MapScreen> {
       padding: EdgeInsets.fromLTRB(3.0.w, 0.5.h, 3.0.w, 0.5.h),
      // margin: EdgeInsets.fromLTRB(0, 4.0.h, 0, 0),
       decoration: Style.ButtonDecoration,
-        child: Text(Translations.of(context)!.Station_location,style: TextStyle(color: Style.WhiteColor, fontSize: 10.0.sp),),
+        child: Text(Translations.of(context)!.Station_location,style: TextStyle(color: Style.WhiteColor, fontSize: 16.0.sp),),
       ),
         onTap: () async {
       showLoading();

@@ -102,7 +102,7 @@ class _ServicesPageState extends State<ServicesPage> {
                         ),
                         child: Column(children: [
                           Text(data[index].name!, style: TextStyle(
-                              color: Style.MainTextColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold),),
+                              color: Style.MainTextColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold),),
                            Expanded(child: Image.network(data[index].img!),)
                          /* Expanded(
                             child: Image(image: AssetImage('lib/assets/' +
@@ -115,7 +115,7 @@ class _ServicesPageState extends State<ServicesPage> {
     } else {
       return Center(child: Text(Translations.of(context)!.NoData,
         style:TextStyle(
-            color: Colors.red, fontSize: 14.0.sp, fontWeight: FontWeight.bold),));
+            color: Colors.red, fontSize: 16.0.sp, fontWeight: FontWeight.bold),));
     }
   }
 

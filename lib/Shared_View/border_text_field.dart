@@ -69,17 +69,17 @@ class _GlobalTextFieldState extends State<BorderTextField> {
               controller: widget.controller,
               cursorErrorColor:Style.MainColor,
               cursorColor:Style.MainColor,
-              style: TextStyle(fontSize: 12.0.sp,fontWeight: FontWeight.bold,color: Style.MainTextColor),
+              style: TextStyle(fontSize: 16.0.sp,fontWeight: FontWeight.bold,color: Style.MainTextColor),
               obscureText: widget.password??false,
               keyboardType: widget.keyboardType??TextInputType.emailAddress,
               decoration: InputDecoration(
                 // icon: Icon(Icons.home_work_outlined, size: 3.0.h),
                 //  border: InputBorder.none,
                 labelText: widget.label,
-                labelStyle: TextStyle(fontSize: 10.0.sp,fontWeight: FontWeight.bold,color: Style.MainTextColor),
-                hintStyle:  TextStyle(fontSize: 10.0.sp,fontWeight: FontWeight.bold,color: Style.GreyColor),
+                labelStyle: TextStyle(fontSize: 16.0.sp,fontWeight: FontWeight.bold,color: Style.MainTextColor),
+                hintStyle:  TextStyle(fontSize: 16.0.sp,fontWeight: FontWeight.bold,color: Style.GreyColor),
                 hintText: widget.hint??"",
-                errorStyle:  TextStyle(fontSize: 10.0.sp,fontWeight: FontWeight.bold,color: Colors.red),
+                errorStyle:  TextStyle(fontSize: 16.0.sp,fontWeight: FontWeight.bold,color: Colors.red),
                 border:  OutlineInputBorder(),
                focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Style.MainTextColor, width: 1.0), // Border when focused

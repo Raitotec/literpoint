@@ -77,15 +77,15 @@ class _LoginPageState extends State<LoginPage> {
                     child: TextFormField(
                         controller: nameController,
                         cursorColor: Style.SecondryColor,
-                        style: TextStyle(fontSize: 14.0.sp, color: Style.MainTextColor),
+                        style: TextStyle(fontSize: 16.0.sp, color: Style.MainTextColor),
                         decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: Translations.of(context)!.Code_Validation,
-                           // labelStyle: TextStyle(fontSize: 12.0.sp, color: Style.GreyColor),
+                           // labelStyle: TextStyle(fontSize: 16.0.sp, color: Style.GreyColor),
                           //  labelText: Translations.of(context)!.Code,
-                            hintStyle: TextStyle(fontSize: 12.0.sp,
+                            hintStyle: TextStyle(fontSize: 16.0.sp,
                               color: Style.GreyColor,),
-                            errorStyle: TextStyle(fontSize: 14.0.sp,
+                            errorStyle: TextStyle(fontSize: 16.0.sp,
                                 color: Colors.red)
                         ),
                         keyboardType: TextInputType.number,
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
             child:  Text(
                   Translations.of(context)!.login,
                   style: TextStyle(color: Colors.white,
-                      fontSize: 15.0.sp),
+                      fontSize: 17.0.sp),
 
                   textAlign: TextAlign.center,
 

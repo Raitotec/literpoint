@@ -106,7 +106,7 @@ DrawerList(BuildContext context,{int id=0})
                        title: Text(
                            Translations.of(context)!.Services,
                            style: TextStyle(
-                               color: Style.MainTextColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold)
+                               color: Style.MainTextColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold)
                        ),),),
                      Icon(Icons.arrow_drop_down, color: Style.MainColor,
                          size: 3.0.h),
@@ -136,7 +136,7 @@ DrawerList(BuildContext context,{int id=0})
                                SizedBox(width: 2.0.w,),
                                Text(choice.name!,
                                    style: TextStyle(
-                                       color: Style.MainColor, fontSize: 12.0.sp, fontWeight: FontWeight.bold))
+                                       color: Style.MainColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold))
                              ]
                          )
                      );
@@ -170,7 +170,7 @@ DrawerList(BuildContext context,{int id=0})
                    title: Text(
                        Translations.of(context)!.Language,
                        style: TextStyle(
-                           color: Style.MainTextColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold)
+                           color: Style.MainTextColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold)
                    ),
                    onTap: () async {
                      Navigator.pop(context);
@@ -203,7 +203,7 @@ Drawer_Items(String icon,String name, BuildContext context, String route)
         title: Text(
             name,
             style: TextStyle(
-                color: Style.MainTextColor, fontSize: 14.0.sp, fontWeight: FontWeight.bold)
+                color: Style.MainTextColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold)
         ),
         onTap: () {
 
@@ -222,7 +222,7 @@ ExpansionTile_Items(String name,BuildContext context, String route)
       title: Text(
           "- "+name,
           style: TextStyle(
-              color: Style.SecondryColor, fontSize: 12.0.sp, fontWeight: FontWeight.bold),
+              color: Style.SecondryColor, fontSize: 16.0.sp, fontWeight: FontWeight.bold),
           textAlign: TextAlign.start,
       ),
       dense:true,
